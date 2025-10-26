@@ -243,15 +243,37 @@ document.getElementById('predictionForm').addEventListener('submit', async funct
     submitBtn.disabled = true;
     
     try {
-        // Get form data
+        // Get form data and convert to proper types
         const formData = new FormData(this);
-        const data = Object.fromEntries(formData);
+        const data = {
+            BMI: parseFloat(formData.get('BMI')) || 0,
+            Smoking: formData.get('Smoking') === 'Yes' ? 'Yes' : 'No',
+            AlcoholDrinking: formData.get('AlcoholDrinking') === 'Yes' ? 'Yes' : 'No',
+            Stroke: formData.get('Stroke') === 'Yes' ? 'Yes' : 'No',
+            PhysicalHealth: parseInt(formData.get('PhysicalHealth')) || 0,
+            MentalHealth: parseInt(formData.get('MentalHealth')) || 0,
+            DiffWalking: formData.get('DiffWalking') === 'Yes' ? 'Yes' : 'No',
+            Sex: formData.get('Sex'),
+            AgeCategory: formData.get('AgeCategory'),
+            Race: formData.get('Race'),
+            Diabetic: formData.get('Diabetic'),
+            PhysicalActivity: formData.get('PhysicalActivity') === 'Yes' ? 'Yes' : 'No',
+            GenHealth: formData.get('GenHealth'),
+            SleepTime: parseFloat(formData.get('SleepTime')) || 0,
+            Asthma: formData.get('Asthma') === 'Yes' ? 'Yes' : 'No',
+            KidneyDisease: formData.get('KidneyDisease') === 'Yes' ? 'Yes' : 'No',
+            SkinCancer: formData.get('SkinCancer') === 'Yes' ? 'Yes' : 'No'
+        };
+        
+        // Log the data being sent
+        console.log('Sending data to server:', data);
         
         // Send prediction request
         const response = await fetch('/api/predict', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest'
             },
             body: JSON.stringify(data)
         });
@@ -280,9 +302,35 @@ document.getElementById('predictionForm').addEventListener('submit', async funct
 function displayResults(result) {
     const resultsDiv = document.getElementById('predictionResults');
     
-    const riskColor = result.prediction === 1 ? 'danger' : 'success';
-    const riskIcon = result.prediction === 1 ? 'fas fa-exclamation-triangle' : 'fas fa-check-circle';
-    const riskText = result.prediction === 1 ? 'High Risk' : 'Low Risk';
+    // Check if the result contains an error
+    if (result.status === 'error') {
+        resultsDiv.innerHTML = `
+            <div class="alert alert-danger">
+                <h5><i class="fas fa-exclamation-triangle me-2"></i>Error</h5>
+                <p>${result.error || 'An unknown error occurred'}</p>
+                ${result.expected_features ? `<p>Expected ${result.expected_features} features, got ${result.received_features}</p>` : ''}
+            </div>`;
+        return;
+    }
+    
+    // Convert probability to a number and ensure it's between 0 and 1
+    const probability = parseFloat(result.probability);
+    if (isNaN(probability) || probability < 0 || probability > 1) {
+        resultsDiv.innerHTML = `
+            <div class="alert alert-warning">
+                <h5><i class="fas fa-exclamation-triangle me-2"></i>Warning</h5>
+                <p>Received invalid probability value: ${result.probability}</p>
+            </div>`;
+        return;
+    }
+    
+    const probabilityPercent = (probability * 100).toFixed(1);
+    
+    // Determine risk level and styling
+    const isHighRisk = probability >= 0.5;
+    const riskColor = isHighRisk ? 'danger' : 'success';
+    const riskIcon = isHighRisk ? 'fas fa-exclamation-triangle' : 'fas fa-check-circle';
+    const riskText = isHighRisk ? 'High Risk' : 'Low Risk';
     
     resultsDiv.innerHTML = `
         <div class="row">
@@ -291,7 +339,7 @@ function displayResults(result) {
                     <h5><i class="${riskIcon} me-2"></i>Risk Assessment</h5>
                     <div class="risk-indicator risk-${riskColor}">
                         <h3>${riskText}</h3>
-                        <p>Risk Level: ${result.risk_level}</p>
+                        <p>Risk Level: ${result.risk_level || 'Not specified'}</p>
                     </div>
                 </div>
             </div>
@@ -299,12 +347,19 @@ function displayResults(result) {
                 <div class="result-card">
                     <h5><i class="fas fa-percentage me-2"></i>Probability</h5>
                     <div class="probability-chart">
-                        <div class="progress mb-2">
-                            <div class="progress-bar bg-${riskColor}" style="width: ${(result.probability.disease * 100).toFixed(1)}%">
-                                ${(result.probability.disease * 100).toFixed(1)}%
+                        <div class="progress mb-2" style="height: 30px;">
+                            <div class="progress-bar bg-${riskColor} progress-bar-striped progress-bar-animated" 
+                                 role="progressbar" 
+                                 style="width: ${probabilityPercent}%"
+                                 aria-valuenow="${probabilityPercent}" 
+                                 aria-valuemin="0" 
+                                 aria-valuemax="100">
+                                ${probabilityPercent}%
                             </div>
                         </div>
-                        <p class="mb-0">Heart Disease Risk: ${(result.probability.disease * 100).toFixed(1)}%</p>
+                        <p class="mb-0 text-center">
+                            <strong>Heart Disease Risk: ${probabilityPercent}%</strong>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -314,7 +369,7 @@ function displayResults(result) {
         <div class="recommendations mt-4">
             <h5><i class="fas fa-lightbulb me-2"></i>Recommendations</h5>
             <ul class="list-group">
-                ${result.recommendations.map(rec => `<li class="list-group-item">${rec}</li>`).join('')}
+                ${result.recommendations.map(rec => `<li class="list-group-item"><i class="fas fa-arrow-circle-right me-2"></i>${rec}</li>`).join('')}
             </ul>
         </div>
         ` : ''}

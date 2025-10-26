@@ -1513,3 +1513,305 @@ TypeError: '>' not supported between instances of 'str' and 'int'
 2025-10-26 04:55:21,607 - heart_disease_prediction - INFO - target_encoder loaded successfully
 2025-10-26 04:55:21,624 - heart_disease_prediction - INFO - smote loaded successfully
 2025-10-26 04:55:22,337 - heart_disease_prediction - INFO - feature_selector loaded successfully
+2025-10-26 16:45:25,182 - heart_disease_prediction - INFO - Plotting configuration initialized
+2025-10-26 16:45:25,189 - heart_disease_prediction - ERROR - Model not found at E:\Heart-Disease\app\models\best_model.pkl
+2025-10-26 16:45:31,673 - heart_disease_prediction - INFO - Plotting configuration initialized
+2025-10-26 16:45:31,676 - heart_disease_prediction - ERROR - Model not found at E:\Heart-Disease\app\models\best_model.pkl
+2025-10-26 17:00:43,936 - heart_disease_prediction - INFO - Plotting configuration initialized
+2025-10-26 17:00:44,204 - heart_disease_prediction - INFO - Model loaded successfully from E:\Heart-Disease\app\models\best_model.pkl
+2025-10-26 17:00:44,204 - heart_disease_prediction - INFO - Model type: RandomForestClassifier
+2025-10-26 17:00:44,310 - heart_disease_prediction - INFO - Model has feature importances
+2025-10-26 17:00:44,310 - heart_disease_prediction - INFO - Model expects 15 features
+2025-10-26 17:00:44,310 - heart_disease_prediction - INFO - scaler loaded successfully
+2025-10-26 17:00:44,311 - heart_disease_prediction - INFO - label_encoders loaded successfully
+2025-10-26 17:00:44,312 - heart_disease_prediction - INFO - target_encoder loaded successfully
+2025-10-26 17:00:44,320 - heart_disease_prediction - INFO - smote loaded successfully
+2025-10-26 17:00:44,348 - heart_disease_prediction - INFO - feature_selector loaded successfully
+2025-10-26 17:00:54,226 - heart_disease_prediction - INFO - Plotting configuration initialized
+2025-10-26 17:00:54,562 - heart_disease_prediction - INFO - Model loaded successfully from E:\Heart-Disease\app\models\best_model.pkl
+2025-10-26 17:00:54,562 - heart_disease_prediction - INFO - Model type: RandomForestClassifier
+2025-10-26 17:00:54,614 - heart_disease_prediction - INFO - Model has feature importances
+2025-10-26 17:00:54,614 - heart_disease_prediction - INFO - Model expects 15 features
+2025-10-26 17:00:54,616 - heart_disease_prediction - INFO - scaler loaded successfully
+2025-10-26 17:00:54,617 - heart_disease_prediction - INFO - label_encoders loaded successfully
+2025-10-26 17:00:54,618 - heart_disease_prediction - INFO - target_encoder loaded successfully
+2025-10-26 17:00:54,626 - heart_disease_prediction - INFO - smote loaded successfully
+2025-10-26 17:00:54,655 - heart_disease_prediction - INFO - feature_selector loaded successfully
+2025-10-26 17:06:29,055 - heart_disease_prediction - INFO - Plotting configuration initialized
+2025-10-26 17:06:29,428 - heart_disease_prediction - INFO - Model loaded successfully from E:\Heart-Disease\app\models\best_model.pkl
+2025-10-26 17:06:29,429 - heart_disease_prediction - INFO - Model type: RandomForestClassifier
+2025-10-26 17:06:29,506 - heart_disease_prediction - INFO - Model has feature importances
+2025-10-26 17:06:29,506 - heart_disease_prediction - INFO - Model expects 15 features
+2025-10-26 17:06:29,507 - heart_disease_prediction - INFO - scaler loaded successfully
+2025-10-26 17:06:29,509 - heart_disease_prediction - INFO - label_encoders loaded successfully
+2025-10-26 17:06:29,510 - heart_disease_prediction - INFO - target_encoder loaded successfully
+2025-10-26 17:06:29,521 - heart_disease_prediction - INFO - smote loaded successfully
+2025-10-26 17:06:29,550 - heart_disease_prediction - INFO - feature_selector loaded successfully
+2025-10-26 17:09:04,894 - heart_disease_prediction - INFO - Plotting configuration initialized
+2025-10-26 17:09:05,222 - heart_disease_prediction - INFO - Model loaded successfully from E:\Heart-Disease\app\models\best_model.pkl
+2025-10-26 17:09:05,223 - heart_disease_prediction - INFO - Model type: RandomForestClassifier
+2025-10-26 17:09:05,274 - heart_disease_prediction - INFO - Model has feature importances
+2025-10-26 17:09:05,274 - heart_disease_prediction - INFO - Model expects 15 features
+2025-10-26 17:09:05,275 - heart_disease_prediction - INFO - scaler loaded successfully
+2025-10-26 17:09:05,276 - heart_disease_prediction - INFO - label_encoders loaded successfully
+2025-10-26 17:09:05,276 - heart_disease_prediction - INFO - target_encoder loaded successfully
+2025-10-26 17:09:05,286 - heart_disease_prediction - INFO - smote loaded successfully
+2025-10-26 17:09:05,312 - heart_disease_prediction - INFO - feature_selector loaded successfully
+2025-10-26 17:09:13,290 - heart_disease_prediction - INFO - Plotting configuration initialized
+2025-10-26 17:09:13,497 - heart_disease_prediction - INFO - Model loaded successfully from E:\Heart-Disease\app\models\best_model.pkl
+2025-10-26 17:09:13,497 - heart_disease_prediction - INFO - Model type: RandomForestClassifier
+2025-10-26 17:09:13,562 - heart_disease_prediction - INFO - Model has feature importances
+2025-10-26 17:09:13,563 - heart_disease_prediction - INFO - Model expects 15 features
+2025-10-26 17:09:13,563 - heart_disease_prediction - INFO - scaler loaded successfully
+2025-10-26 17:09:13,564 - heart_disease_prediction - INFO - label_encoders loaded successfully
+2025-10-26 17:09:13,564 - heart_disease_prediction - INFO - target_encoder loaded successfully
+2025-10-26 17:09:13,567 - heart_disease_prediction - INFO - smote loaded successfully
+2025-10-26 17:09:13,585 - heart_disease_prediction - INFO - feature_selector loaded successfully
+2025-10-26 17:10:57,113 - heart_disease_prediction - INFO - Received prediction request with data: {'BMI': '12', 'Sex': 'Male', 'AgeCategory': '60-64', 'Race': 'White', 'PhysicalHealth': '10', 'MentalHealth': '10', 'SleepTime': '8', 'GenHealth': 'Excellent', 'Smoking': 'No', 'AlcoholDrinking': 'No', 'PhysicalActivity': 'Yes', 'DiffWalking': 'No', 'Stroke': 'No', 'Diabetic': 'No', 'Asthma': 'No', 'KidneyDisease': 'No', 'SkinCancer': 'No'}
+2025-10-26 17:10:57,131 - heart_disease_prediction - INFO - Original input columns: ['BMI', 'Sex', 'AgeCategory', 'Race', 'PhysicalHealth', 'MentalHealth', 'SleepTime', 'GenHealth', 'Smoking', 'AlcoholDrinking', 'PhysicalActivity', 'DiffWalking', 'Stroke', 'Diabetic', 'Asthma', 'KidneyDisease', 'SkinCancer']
+2025-10-26 17:10:57,133 - heart_disease_prediction - INFO - Received prediction request with data: {'BMI': 12, 'Sex': 'Male', 'AgeCategory': '60-64', 'Race': 'White', 'PhysicalHealth': 10, 'MentalHealth': 10, 'SleepTime': 8, 'GenHealth': 'Excellent', 'Smoking': 'No', 'AlcoholDrinking': 'No', 'PhysicalActivity': 'Yes', 'DiffWalking': 'No', 'Stroke': 'No', 'Diabetic': 'No', 'Asthma': 'No', 'KidneyDisease': 'No', 'SkinCancer': 'No'}
+2025-10-26 17:10:57,181 - heart_disease_prediction - INFO - Model expects 15 features: ['BMI', 'Smoking', 'PhysicalHealth', 'MentalHealth', 'DiffWalking', 'Sex', 'AgeCategory', 'Race', 'Diabetic', 'GenHealth', 'SleepTime', 'BMI_Category', 'Age_Numeric', 'Health_Score', 'Risk_Score']
+2025-10-26 17:10:57,182 - heart_disease_prediction - INFO - Original input columns: ['BMI', 'Sex', 'AgeCategory', 'Race', 'PhysicalHealth', 'MentalHealth', 'SleepTime', 'GenHealth', 'Smoking', 'AlcoholDrinking', 'PhysicalActivity', 'DiffWalking', 'Stroke', 'Diabetic', 'Asthma', 'KidneyDisease', 'SkinCancer']
+2025-10-26 17:10:57,182 - heart_disease_prediction - INFO - Current features after engineering: ['BMI', 'Sex', 'AgeCategory', 'Race', 'PhysicalHealth', 'MentalHealth', 'SleepTime', 'GenHealth', 'Smoking', 'AlcoholDrinking', 'PhysicalActivity', 'DiffWalking', 'Stroke', 'Diabetic', 'Asthma', 'KidneyDisease', 'SkinCancer', 'BMI_Category', 'Age_Numeric', 'Health_Score', 'Risk_Score']
+2025-10-26 17:10:57,204 - heart_disease_prediction - INFO - Model expects 15 features: ['BMI', 'Smoking', 'PhysicalHealth', 'MentalHealth', 'DiffWalking', 'Sex', 'AgeCategory', 'Race', 'Diabetic', 'GenHealth', 'SleepTime', 'BMI_Category', 'Age_Numeric', 'Health_Score', 'Risk_Score']
+2025-10-26 17:10:57,210 - heart_disease_prediction - INFO - Features after reordering: ['BMI', 'Smoking', 'PhysicalHealth', 'MentalHealth', 'DiffWalking', 'Sex', 'AgeCategory', 'Race', 'Diabetic', 'GenHealth', 'SleepTime', 'BMI_Category', 'Age_Numeric', 'Health_Score', 'Risk_Score']
+2025-10-26 17:10:57,211 - heart_disease_prediction - INFO - Current features after engineering: ['BMI', 'Sex', 'AgeCategory', 'Race', 'PhysicalHealth', 'MentalHealth', 'SleepTime', 'GenHealth', 'Smoking', 'AlcoholDrinking', 'PhysicalActivity', 'DiffWalking', 'Stroke', 'Diabetic', 'Asthma', 'KidneyDisease', 'SkinCancer', 'BMI_Category', 'Age_Numeric', 'Health_Score', 'Risk_Score']
+2025-10-26 17:10:57,211 - heart_disease_prediction - INFO - Data shape before transformations: (1, 15)
+2025-10-26 17:10:57,214 - heart_disease_prediction - INFO - Features after reordering: ['BMI', 'Smoking', 'PhysicalHealth', 'MentalHealth', 'DiffWalking', 'Sex', 'AgeCategory', 'Race', 'Diabetic', 'GenHealth', 'SleepTime', 'BMI_Category', 'Age_Numeric', 'Health_Score', 'Risk_Score']
+2025-10-26 17:10:57,216 - heart_disease_prediction - INFO - Data shape before transformations: (1, 15)
+2025-10-26 17:10:57,232 - heart_disease_prediction - INFO - Completed label encoding
+2025-10-26 17:10:57,236 - heart_disease_prediction - WARNING - Feature mismatch in scaler:
+2025-10-26 17:10:57,243 - heart_disease_prediction - INFO - Completed label encoding
+2025-10-26 17:10:57,244 - heart_disease_prediction - WARNING -   Expected features: ['BMI', 'Smoking', 'AlcoholDrinking', 'Stroke', 'PhysicalHealth', 'MentalHealth', 'DiffWalking', 'Sex', 'AgeCategory', 'Race', 'Diabetic', 'PhysicalActivity', 'GenHealth', 'SleepTime', 'Asthma', 'KidneyDisease', 'SkinCancer', 'BMI_Category', 'Age_Numeric', 'Health_Score', 'Risk_Score']
+2025-10-26 17:10:57,244 - heart_disease_prediction - WARNING - Feature mismatch in scaler:
+2025-10-26 17:10:57,244 - heart_disease_prediction - WARNING -   Actual features: ['BMI', 'Smoking', 'PhysicalHealth', 'MentalHealth', 'DiffWalking', 'Sex', 'AgeCategory', 'Race', 'Diabetic', 'GenHealth', 'SleepTime', 'BMI_Category', 'Age_Numeric', 'Health_Score', 'Risk_Score']
+2025-10-26 17:10:57,245 - heart_disease_prediction - WARNING -   Expected features: ['BMI', 'Smoking', 'AlcoholDrinking', 'Stroke', 'PhysicalHealth', 'MentalHealth', 'DiffWalking', 'Sex', 'AgeCategory', 'Race', 'Diabetic', 'PhysicalActivity', 'GenHealth', 'SleepTime', 'Asthma', 'KidneyDisease', 'SkinCancer', 'BMI_Category', 'Age_Numeric', 'Health_Score', 'Risk_Score']
+2025-10-26 17:10:57,245 - heart_disease_prediction - WARNING -   Adding missing features with default values: ['AlcoholDrinking', 'Stroke', 'PhysicalActivity', 'Asthma', 'KidneyDisease', 'SkinCancer']
+2025-10-26 17:10:57,245 - heart_disease_prediction - WARNING -   Actual features: ['BMI', 'Smoking', 'PhysicalHealth', 'MentalHealth', 'DiffWalking', 'Sex', 'AgeCategory', 'Race', 'Diabetic', 'GenHealth', 'SleepTime', 'BMI_Category', 'Age_Numeric', 'Health_Score', 'Risk_Score']
+2025-10-26 17:10:57,257 - heart_disease_prediction - WARNING -   Adding missing features with default values: ['AlcoholDrinking', 'Stroke', 'PhysicalActivity', 'Asthma', 'KidneyDisease', 'SkinCancer']
+2025-10-26 17:10:57,264 - heart_disease_prediction - INFO - Data shape before scaling: (1, 21)
+2025-10-26 17:10:57,302 - heart_disease_prediction - INFO - Data shape before scaling: (1, 21)
+2025-10-26 17:10:57,493 - heart_disease_prediction - INFO - Features after scaling: ['BMI', 'Smoking', 'AlcoholDrinking', 'Stroke', 'PhysicalHealth', 'MentalHealth', 'DiffWalking', 'Sex', 'AgeCategory', 'Race', 'Diabetic', 'PhysicalActivity', 'GenHealth', 'SleepTime', 'Asthma', 'KidneyDisease', 'SkinCancer', 'BMI_Category', 'Age_Numeric', 'Health_Score', 'Risk_Score']
+2025-10-26 17:10:57,493 - heart_disease_prediction - INFO - Data shape after scaling: (1, 21)
+2025-10-26 17:10:57,516 - heart_disease_prediction - INFO - Features after scaling: ['BMI', 'Smoking', 'AlcoholDrinking', 'Stroke', 'PhysicalHealth', 'MentalHealth', 'DiffWalking', 'Sex', 'AgeCategory', 'Race', 'Diabetic', 'PhysicalActivity', 'GenHealth', 'SleepTime', 'Asthma', 'KidneyDisease', 'SkinCancer', 'BMI_Category', 'Age_Numeric', 'Health_Score', 'Risk_Score']
+2025-10-26 17:10:57,526 - heart_disease_prediction - INFO - Selected 15 out of 21 features
+2025-10-26 17:10:57,526 - heart_disease_prediction - INFO - Data shape after scaling: (1, 21)
+2025-10-26 17:10:57,531 - heart_disease_prediction - INFO - Final selected features shape: (1, 15)
+2025-10-26 17:10:57,560 - heart_disease_prediction - INFO - Selected 15 out of 21 features
+2025-10-26 17:10:57,562 - heart_disease_prediction - INFO - Final preprocessed data shape: (1, 15)
+2025-10-26 17:10:57,567 - heart_disease_prediction - INFO - Final selected features shape: (1, 15)
+2025-10-26 17:10:57,568 - heart_disease_prediction - INFO - Preprocessed data shape: (1, 15)
+2025-10-26 17:10:57,571 - heart_disease_prediction - INFO - Final preprocessed data shape: (1, 15)
+2025-10-26 17:10:57,575 - heart_disease_prediction - INFO - Preprocessed data shape: (1, 15)
+2025-10-26 17:10:57,624 - heart_disease_prediction - INFO - Prediction successful. Risk level: Low Risk, Probability: 0.1000
+2025-10-26 17:10:57,638 - heart_disease_prediction - INFO - Prediction successful. Risk level: Low Risk, Probability: 0.1000
+2025-10-26 17:11:08,304 - heart_disease_prediction - INFO - Plotting configuration initialized
+2025-10-26 17:11:08,776 - heart_disease_prediction - INFO - Model loaded successfully from E:\Heart-Disease\app\models\best_model.pkl
+2025-10-26 17:11:08,776 - heart_disease_prediction - INFO - Model type: RandomForestClassifier
+2025-10-26 17:11:08,861 - heart_disease_prediction - INFO - Model has feature importances
+2025-10-26 17:11:08,861 - heart_disease_prediction - INFO - Model expects 15 features
+2025-10-26 17:11:08,863 - heart_disease_prediction - INFO - scaler loaded successfully
+2025-10-26 17:11:08,864 - heart_disease_prediction - INFO - label_encoders loaded successfully
+2025-10-26 17:11:08,865 - heart_disease_prediction - INFO - target_encoder loaded successfully
+2025-10-26 17:11:08,875 - heart_disease_prediction - INFO - smote loaded successfully
+2025-10-26 17:11:08,908 - heart_disease_prediction - INFO - feature_selector loaded successfully
+2025-10-26 17:19:45,982 - heart_disease_prediction - INFO - Plotting configuration initialized
+2025-10-26 17:19:46,344 - heart_disease_prediction - INFO - Model loaded successfully from E:\Heart-Disease\app\models\best_model.pkl
+2025-10-26 17:19:46,344 - heart_disease_prediction - INFO - Model type: RandomForestClassifier
+2025-10-26 17:19:46,408 - heart_disease_prediction - INFO - Model has feature importances
+2025-10-26 17:19:46,409 - heart_disease_prediction - INFO - Model expects 15 features
+2025-10-26 17:19:46,411 - heart_disease_prediction - INFO - scaler loaded successfully
+2025-10-26 17:19:46,412 - heart_disease_prediction - INFO - label_encoders loaded successfully
+2025-10-26 17:19:46,413 - heart_disease_prediction - INFO - target_encoder loaded successfully
+2025-10-26 17:19:46,425 - heart_disease_prediction - INFO - smote loaded successfully
+2025-10-26 17:19:46,466 - heart_disease_prediction - INFO - feature_selector loaded successfully
+2025-10-26 17:21:11,176 - heart_disease_prediction - INFO - Plotting configuration initialized
+2025-10-26 17:21:11,819 - heart_disease_prediction - INFO - Model loaded successfully from E:\Heart-Disease\app\models\best_model.pkl
+2025-10-26 17:21:11,819 - heart_disease_prediction - INFO - Model type: RandomForestClassifier
+2025-10-26 17:21:11,904 - heart_disease_prediction - INFO - Model has feature importances
+2025-10-26 17:21:11,905 - heart_disease_prediction - INFO - Model expects 15 features
+2025-10-26 17:21:11,908 - heart_disease_prediction - INFO - scaler loaded successfully
+2025-10-26 17:21:11,911 - heart_disease_prediction - INFO - label_encoders loaded successfully
+2025-10-26 17:21:11,912 - heart_disease_prediction - INFO - target_encoder loaded successfully
+2025-10-26 17:21:11,949 - heart_disease_prediction - INFO - smote loaded successfully
+2025-10-26 17:21:12,006 - heart_disease_prediction - INFO - feature_selector loaded successfully
+2025-10-26 17:24:27,769 - heart_disease_prediction - INFO - Plotting configuration initialized
+2025-10-26 17:24:28,124 - heart_disease_prediction - INFO - Model loaded successfully from E:\Heart-Disease\app\models\best_model.pkl
+2025-10-26 17:24:28,124 - heart_disease_prediction - INFO - Model type: RandomForestClassifier
+2025-10-26 17:24:28,170 - heart_disease_prediction - INFO - Model has feature importances
+2025-10-26 17:24:28,170 - heart_disease_prediction - INFO - Model expects 15 features
+2025-10-26 17:24:28,172 - heart_disease_prediction - INFO - scaler loaded successfully
+2025-10-26 17:24:28,173 - heart_disease_prediction - INFO - label_encoders loaded successfully
+2025-10-26 17:24:28,174 - heart_disease_prediction - INFO - target_encoder loaded successfully
+2025-10-26 17:24:28,187 - heart_disease_prediction - INFO - smote loaded successfully
+2025-10-26 17:24:28,226 - heart_disease_prediction - INFO - feature_selector loaded successfully
+2025-10-26 17:24:37,560 - heart_disease_prediction - INFO - Plotting configuration initialized
+2025-10-26 17:24:38,076 - heart_disease_prediction - INFO - Model loaded successfully from E:\Heart-Disease\app\models\best_model.pkl
+2025-10-26 17:24:38,077 - heart_disease_prediction - INFO - Model type: RandomForestClassifier
+2025-10-26 17:24:38,156 - heart_disease_prediction - INFO - Model has feature importances
+2025-10-26 17:24:38,156 - heart_disease_prediction - INFO - Model expects 15 features
+2025-10-26 17:24:38,158 - heart_disease_prediction - INFO - scaler loaded successfully
+2025-10-26 17:24:38,159 - heart_disease_prediction - INFO - label_encoders loaded successfully
+2025-10-26 17:24:38,161 - heart_disease_prediction - INFO - target_encoder loaded successfully
+2025-10-26 17:24:38,167 - heart_disease_prediction - INFO - smote loaded successfully
+2025-10-26 17:24:38,206 - heart_disease_prediction - INFO - feature_selector loaded successfully
+2025-10-26 17:27:55,218 - heart_disease_prediction - INFO - Plotting configuration initialized
+2025-10-26 17:27:55,744 - heart_disease_prediction - INFO - Model loaded successfully from E:\Heart-Disease\app\models\best_model.pkl
+2025-10-26 17:27:55,744 - heart_disease_prediction - INFO - Model type: RandomForestClassifier
+2025-10-26 17:27:55,807 - heart_disease_prediction - INFO - Model has feature importances
+2025-10-26 17:27:55,807 - heart_disease_prediction - INFO - Model expects 15 features
+2025-10-26 17:27:55,809 - heart_disease_prediction - INFO - scaler loaded successfully
+2025-10-26 17:27:55,810 - heart_disease_prediction - INFO - label_encoders loaded successfully
+2025-10-26 17:27:55,812 - heart_disease_prediction - INFO - target_encoder loaded successfully
+2025-10-26 17:27:55,824 - heart_disease_prediction - INFO - smote loaded successfully
+2025-10-26 17:27:55,858 - heart_disease_prediction - INFO - feature_selector loaded successfully
+2025-10-26 17:28:05,315 - heart_disease_prediction - INFO - Plotting configuration initialized
+2025-10-26 17:28:05,736 - heart_disease_prediction - INFO - Model loaded successfully from E:\Heart-Disease\app\models\best_model.pkl
+2025-10-26 17:28:05,736 - heart_disease_prediction - INFO - Model type: RandomForestClassifier
+2025-10-26 17:28:05,803 - heart_disease_prediction - INFO - Model has feature importances
+2025-10-26 17:28:05,803 - heart_disease_prediction - INFO - Model expects 15 features
+2025-10-26 17:28:05,806 - heart_disease_prediction - INFO - scaler loaded successfully
+2025-10-26 17:28:05,808 - heart_disease_prediction - INFO - label_encoders loaded successfully
+2025-10-26 17:28:05,810 - heart_disease_prediction - INFO - target_encoder loaded successfully
+2025-10-26 17:28:05,824 - heart_disease_prediction - INFO - smote loaded successfully
+2025-10-26 17:28:05,878 - heart_disease_prediction - INFO - feature_selector loaded successfully
+2025-10-26 17:32:12,147 - heart_disease_prediction - INFO - Received prediction request with data: {'BMI': 11, 'Sex': 'Female', 'AgeCategory': '55-59', 'Race': 'White', 'PhysicalHealth': 23, 'MentalHealth': 23, 'SleepTime': 8, 'GenHealth': 'Poor', 'Smoking': 'Yes', 'AlcoholDrinking': 'Yes', 'PhysicalActivity': 'Yes', 'DiffWalking': 'Yes', 'Stroke': 'No', 'Diabetic': 'No', 'Asthma': 'No', 'KidneyDisease': 'No', 'SkinCancer': 'No'}
+2025-10-26 17:32:12,192 - heart_disease_prediction - INFO - Received prediction request with data: {'BMI': '11', 'Sex': 'Female', 'AgeCategory': '55-59', 'Race': 'White', 'PhysicalHealth': '23', 'MentalHealth': '23', 'SleepTime': '8', 'GenHealth': 'Poor', 'Smoking': 'Yes', 'AlcoholDrinking': 'Yes', 'PhysicalActivity': 'Yes', 'DiffWalking': 'Yes', 'Stroke': 'No', 'Diabetic': 'No', 'Asthma': 'No', 'KidneyDisease': 'No', 'SkinCancer': 'No'}
+2025-10-26 17:32:12,199 - heart_disease_prediction - INFO - Original input columns: ['BMI', 'Sex', 'AgeCategory', 'Race', 'PhysicalHealth', 'MentalHealth', 'SleepTime', 'GenHealth', 'Smoking', 'AlcoholDrinking', 'PhysicalActivity', 'DiffWalking', 'Stroke', 'Diabetic', 'Asthma', 'KidneyDisease', 'SkinCancer']
+2025-10-26 17:32:12,226 - heart_disease_prediction - INFO - Original input columns: ['BMI', 'Sex', 'AgeCategory', 'Race', 'PhysicalHealth', 'MentalHealth', 'SleepTime', 'GenHealth', 'Smoking', 'AlcoholDrinking', 'PhysicalActivity', 'DiffWalking', 'Stroke', 'Diabetic', 'Asthma', 'KidneyDisease', 'SkinCancer']
+2025-10-26 17:32:12,332 - heart_disease_prediction - INFO - Model expects 15 features: ['BMI', 'Smoking', 'PhysicalHealth', 'MentalHealth', 'DiffWalking', 'Sex', 'AgeCategory', 'Race', 'Diabetic', 'GenHealth', 'SleepTime', 'BMI_Category', 'Age_Numeric', 'Health_Score', 'Risk_Score']
+2025-10-26 17:32:12,332 - heart_disease_prediction - INFO - Current features after engineering: ['BMI', 'Sex', 'AgeCategory', 'Race', 'PhysicalHealth', 'MentalHealth', 'SleepTime', 'GenHealth', 'Smoking', 'AlcoholDrinking', 'PhysicalActivity', 'DiffWalking', 'Stroke', 'Diabetic', 'Asthma', 'KidneyDisease', 'SkinCancer', 'BMI_Category', 'Age_Numeric', 'Health_Score', 'Risk_Score']
+2025-10-26 17:32:12,345 - heart_disease_prediction - INFO - Features after reordering: ['BMI', 'Smoking', 'PhysicalHealth', 'MentalHealth', 'DiffWalking', 'Sex', 'AgeCategory', 'Race', 'Diabetic', 'GenHealth', 'SleepTime', 'BMI_Category', 'Age_Numeric', 'Health_Score', 'Risk_Score']
+2025-10-26 17:32:12,348 - heart_disease_prediction - INFO - Model expects 15 features: ['BMI', 'Smoking', 'PhysicalHealth', 'MentalHealth', 'DiffWalking', 'Sex', 'AgeCategory', 'Race', 'Diabetic', 'GenHealth', 'SleepTime', 'BMI_Category', 'Age_Numeric', 'Health_Score', 'Risk_Score']
+2025-10-26 17:32:12,348 - heart_disease_prediction - INFO - Data shape before transformations: (1, 15)
+2025-10-26 17:32:12,349 - heart_disease_prediction - INFO - Current features after engineering: ['BMI', 'Sex', 'AgeCategory', 'Race', 'PhysicalHealth', 'MentalHealth', 'SleepTime', 'GenHealth', 'Smoking', 'AlcoholDrinking', 'PhysicalActivity', 'DiffWalking', 'Stroke', 'Diabetic', 'Asthma', 'KidneyDisease', 'SkinCancer', 'BMI_Category', 'Age_Numeric', 'Health_Score', 'Risk_Score']
+2025-10-26 17:32:12,372 - heart_disease_prediction - INFO - Features after reordering: ['BMI', 'Smoking', 'PhysicalHealth', 'MentalHealth', 'DiffWalking', 'Sex', 'AgeCategory', 'Race', 'Diabetic', 'GenHealth', 'SleepTime', 'BMI_Category', 'Age_Numeric', 'Health_Score', 'Risk_Score']
+2025-10-26 17:32:12,389 - heart_disease_prediction - INFO - Data shape before transformations: (1, 15)
+2025-10-26 17:32:12,396 - heart_disease_prediction - INFO - Completed label encoding
+2025-10-26 17:32:12,397 - heart_disease_prediction - WARNING - Feature mismatch in scaler:
+2025-10-26 17:32:12,398 - heart_disease_prediction - WARNING -   Expected features: ['BMI', 'Smoking', 'AlcoholDrinking', 'Stroke', 'PhysicalHealth', 'MentalHealth', 'DiffWalking', 'Sex', 'AgeCategory', 'Race', 'Diabetic', 'PhysicalActivity', 'GenHealth', 'SleepTime', 'Asthma', 'KidneyDisease', 'SkinCancer', 'BMI_Category', 'Age_Numeric', 'Health_Score', 'Risk_Score']
+2025-10-26 17:32:12,432 - heart_disease_prediction - WARNING -   Actual features: ['BMI', 'Smoking', 'PhysicalHealth', 'MentalHealth', 'DiffWalking', 'Sex', 'AgeCategory', 'Race', 'Diabetic', 'GenHealth', 'SleepTime', 'BMI_Category', 'Age_Numeric', 'Health_Score', 'Risk_Score']
+2025-10-26 17:32:12,445 - heart_disease_prediction - INFO - Completed label encoding
+2025-10-26 17:32:12,446 - heart_disease_prediction - WARNING -   Adding missing features with default values: ['AlcoholDrinking', 'Stroke', 'PhysicalActivity', 'Asthma', 'KidneyDisease', 'SkinCancer']
+2025-10-26 17:32:12,446 - heart_disease_prediction - WARNING - Feature mismatch in scaler:
+2025-10-26 17:32:12,479 - heart_disease_prediction - WARNING -   Expected features: ['BMI', 'Smoking', 'AlcoholDrinking', 'Stroke', 'PhysicalHealth', 'MentalHealth', 'DiffWalking', 'Sex', 'AgeCategory', 'Race', 'Diabetic', 'PhysicalActivity', 'GenHealth', 'SleepTime', 'Asthma', 'KidneyDisease', 'SkinCancer', 'BMI_Category', 'Age_Numeric', 'Health_Score', 'Risk_Score']
+2025-10-26 17:32:12,479 - heart_disease_prediction - WARNING -   Actual features: ['BMI', 'Smoking', 'PhysicalHealth', 'MentalHealth', 'DiffWalking', 'Sex', 'AgeCategory', 'Race', 'Diabetic', 'GenHealth', 'SleepTime', 'BMI_Category', 'Age_Numeric', 'Health_Score', 'Risk_Score']
+2025-10-26 17:32:12,479 - heart_disease_prediction - INFO - Data shape before scaling: (1, 21)
+2025-10-26 17:32:12,480 - heart_disease_prediction - WARNING -   Adding missing features with default values: ['AlcoholDrinking', 'Stroke', 'PhysicalActivity', 'Asthma', 'KidneyDisease', 'SkinCancer']
+2025-10-26 17:32:12,510 - heart_disease_prediction - INFO - Data shape before scaling: (1, 21)
+2025-10-26 17:32:12,520 - heart_disease_prediction - INFO - Features after scaling: ['BMI', 'Smoking', 'AlcoholDrinking', 'Stroke', 'PhysicalHealth', 'MentalHealth', 'DiffWalking', 'Sex', 'AgeCategory', 'Race', 'Diabetic', 'PhysicalActivity', 'GenHealth', 'SleepTime', 'Asthma', 'KidneyDisease', 'SkinCancer', 'BMI_Category', 'Age_Numeric', 'Health_Score', 'Risk_Score']
+2025-10-26 17:32:12,520 - heart_disease_prediction - INFO - Data shape after scaling: (1, 21)
+2025-10-26 17:32:12,546 - heart_disease_prediction - INFO - Selected 15 out of 21 features
+2025-10-26 17:32:12,557 - heart_disease_prediction - INFO - Final selected features shape: (1, 15)
+2025-10-26 17:32:12,560 - heart_disease_prediction - INFO - Final preprocessed data shape: (1, 15)
+2025-10-26 17:32:12,562 - heart_disease_prediction - INFO - Features after scaling: ['BMI', 'Smoking', 'AlcoholDrinking', 'Stroke', 'PhysicalHealth', 'MentalHealth', 'DiffWalking', 'Sex', 'AgeCategory', 'Race', 'Diabetic', 'PhysicalActivity', 'GenHealth', 'SleepTime', 'Asthma', 'KidneyDisease', 'SkinCancer', 'BMI_Category', 'Age_Numeric', 'Health_Score', 'Risk_Score']
+2025-10-26 17:32:12,562 - heart_disease_prediction - INFO - Preprocessed data shape: (1, 15)
+2025-10-26 17:32:12,563 - heart_disease_prediction - INFO - Data shape after scaling: (1, 21)
+2025-10-26 17:32:12,613 - heart_disease_prediction - INFO - Selected 15 out of 21 features
+2025-10-26 17:32:12,625 - heart_disease_prediction - INFO - Final selected features shape: (1, 15)
+2025-10-26 17:32:12,629 - heart_disease_prediction - INFO - Final preprocessed data shape: (1, 15)
+2025-10-26 17:32:12,630 - heart_disease_prediction - INFO - Preprocessed data shape: (1, 15)
+2025-10-26 17:32:12,712 - heart_disease_prediction - INFO - Prediction successful. Risk level: Medium Risk, Probability: 0.4000
+2025-10-26 17:32:12,727 - heart_disease_prediction - INFO - Prediction successful. Risk level: Medium Risk, Probability: 0.4000
+2025-10-26 17:39:43,860 - heart_disease_prediction - INFO - Plotting configuration initialized
+2025-10-26 17:39:44,566 - heart_disease_prediction - INFO - Model loaded successfully from E:\Heart-Disease\app\models\best_model.pkl
+2025-10-26 17:39:44,566 - heart_disease_prediction - INFO - Model type: RandomForestClassifier
+2025-10-26 17:39:44,652 - heart_disease_prediction - INFO - Model has feature importances
+2025-10-26 17:39:44,653 - heart_disease_prediction - INFO - Model expects 15 features
+2025-10-26 17:39:44,656 - heart_disease_prediction - INFO - scaler loaded successfully
+2025-10-26 17:39:44,659 - heart_disease_prediction - INFO - label_encoders loaded successfully
+2025-10-26 17:39:44,664 - heart_disease_prediction - INFO - target_encoder loaded successfully
+2025-10-26 17:39:44,719 - heart_disease_prediction - INFO - smote loaded successfully
+2025-10-26 17:39:44,811 - heart_disease_prediction - INFO - feature_selector loaded successfully
+2025-10-26 17:40:15,469 - heart_disease_prediction - INFO - Plotting configuration initialized
+2025-10-26 17:40:15,808 - heart_disease_prediction - INFO - Model loaded successfully from E:\Heart-Disease\app\models\best_model.pkl
+2025-10-26 17:40:15,808 - heart_disease_prediction - INFO - Model type: RandomForestClassifier
+2025-10-26 17:40:15,878 - heart_disease_prediction - INFO - Model has feature importances
+2025-10-26 17:40:15,878 - heart_disease_prediction - INFO - Model expects 15 features
+2025-10-26 17:40:15,880 - heart_disease_prediction - INFO - scaler loaded successfully
+2025-10-26 17:40:15,881 - heart_disease_prediction - INFO - label_encoders loaded successfully
+2025-10-26 17:40:15,884 - heart_disease_prediction - INFO - target_encoder loaded successfully
+2025-10-26 17:40:15,898 - heart_disease_prediction - INFO - smote loaded successfully
+2025-10-26 17:40:15,937 - heart_disease_prediction - INFO - feature_selector loaded successfully
+2025-10-26 17:40:26,733 - heart_disease_prediction - INFO - Plotting configuration initialized
+2025-10-26 17:40:27,093 - heart_disease_prediction - INFO - Model loaded successfully from E:\Heart-Disease\app\models\best_model.pkl
+2025-10-26 17:40:27,093 - heart_disease_prediction - INFO - Model type: RandomForestClassifier
+2025-10-26 17:40:27,158 - heart_disease_prediction - INFO - Model has feature importances
+2025-10-26 17:40:27,158 - heart_disease_prediction - INFO - Model expects 15 features
+2025-10-26 17:40:27,164 - heart_disease_prediction - INFO - scaler loaded successfully
+2025-10-26 17:40:27,166 - heart_disease_prediction - INFO - label_encoders loaded successfully
+2025-10-26 17:40:27,166 - heart_disease_prediction - INFO - target_encoder loaded successfully
+2025-10-26 17:40:27,179 - heart_disease_prediction - INFO - smote loaded successfully
+2025-10-26 17:40:27,220 - heart_disease_prediction - INFO - feature_selector loaded successfully
+2025-10-26 17:41:46,958 - heart_disease_prediction - INFO - Received prediction request with data: {'BMI': 20, 'Sex': 'Male', 'AgeCategory': '65-69', 'Race': 'White', 'PhysicalHealth': 20, 'MentalHealth': 20, 'SleepTime': 8, 'GenHealth': 'Excellent', 'Smoking': 'No', 'AlcoholDrinking': 'No', 'PhysicalActivity': 'Yes', 'DiffWalking': 'No', 'Stroke': 'No', 'Diabetic': 'No', 'Asthma': 'No', 'KidneyDisease': 'No', 'SkinCancer': 'No'}
+2025-10-26 17:41:46,960 - heart_disease_prediction - INFO - Received prediction request with data: {'BMI': 20, 'Smoking': 'No', 'AlcoholDrinking': 'No', 'Stroke': 'No', 'PhysicalHealth': 20, 'MentalHealth': 20, 'DiffWalking': 'No', 'Sex': 'Male', 'AgeCategory': '65-69', 'Race': 'White', 'Diabetic': 'No', 'PhysicalActivity': 'Yes', 'GenHealth': 'Excellent', 'SleepTime': 8, 'Asthma': 'No', 'KidneyDisease': 'No', 'SkinCancer': 'No'}
+2025-10-26 17:41:47,026 - heart_disease_prediction - INFO - Input data before preprocessing: {'BMI': 20, 'Smoking': 'No', 'AlcoholDrinking': 'No', 'Stroke': 'No', 'PhysicalHealth': 20, 'MentalHealth': 20, 'DiffWalking': 'No', 'Sex': 'Male', 'AgeCategory': '65-69', 'Race': 'White', 'Diabetic': 'No', 'PhysicalActivity': 'Yes', 'GenHealth': 'Excellent', 'SleepTime': 8, 'Asthma': 'No', 'KidneyDisease': 'No', 'SkinCancer': 'No'}
+2025-10-26 17:41:47,032 - heart_disease_prediction - INFO - Input data before preprocessing: {'BMI': 20, 'Sex': 'Male', 'AgeCategory': '65-69', 'Race': 'White', 'PhysicalHealth': 20, 'MentalHealth': 20, 'SleepTime': 8, 'GenHealth': 'Excellent', 'Smoking': 'No', 'AlcoholDrinking': 'No', 'PhysicalActivity': 'Yes', 'DiffWalking': 'No', 'Stroke': 'No', 'Diabetic': 'No', 'Asthma': 'No', 'KidneyDisease': 'No', 'SkinCancer': 'No'}
+2025-10-26 17:41:47,036 - heart_disease_prediction - INFO - Original input columns: ['BMI', 'Smoking', 'AlcoholDrinking', 'Stroke', 'PhysicalHealth', 'MentalHealth', 'DiffWalking', 'Sex', 'AgeCategory', 'Race', 'Diabetic', 'PhysicalActivity', 'GenHealth', 'SleepTime', 'Asthma', 'KidneyDisease', 'SkinCancer']
+2025-10-26 17:41:47,038 - heart_disease_prediction - INFO - Original input columns: ['BMI', 'Sex', 'AgeCategory', 'Race', 'PhysicalHealth', 'MentalHealth', 'SleepTime', 'GenHealth', 'Smoking', 'AlcoholDrinking', 'PhysicalActivity', 'DiffWalking', 'Stroke', 'Diabetic', 'Asthma', 'KidneyDisease', 'SkinCancer']
+2025-10-26 17:41:47,139 - heart_disease_prediction - INFO - Model expects 15 features: ['BMI', 'Smoking', 'PhysicalHealth', 'MentalHealth', 'DiffWalking', 'Sex', 'AgeCategory', 'Race', 'Diabetic', 'GenHealth', 'SleepTime', 'BMI_Category', 'Age_Numeric', 'Health_Score', 'Risk_Score']
+2025-10-26 17:41:47,140 - heart_disease_prediction - INFO - Model expects 15 features: ['BMI', 'Smoking', 'PhysicalHealth', 'MentalHealth', 'DiffWalking', 'Sex', 'AgeCategory', 'Race', 'Diabetic', 'GenHealth', 'SleepTime', 'BMI_Category', 'Age_Numeric', 'Health_Score', 'Risk_Score']
+2025-10-26 17:41:47,141 - heart_disease_prediction - INFO - Current features after engineering: ['BMI', 'Smoking', 'AlcoholDrinking', 'Stroke', 'PhysicalHealth', 'MentalHealth', 'DiffWalking', 'Sex', 'AgeCategory', 'Race', 'Diabetic', 'PhysicalActivity', 'GenHealth', 'SleepTime', 'Asthma', 'KidneyDisease', 'SkinCancer', 'BMI_Category', 'Age_Numeric', 'Health_Score', 'Risk_Score']
+2025-10-26 17:41:47,141 - heart_disease_prediction - INFO - Current features after engineering: ['BMI', 'Sex', 'AgeCategory', 'Race', 'PhysicalHealth', 'MentalHealth', 'SleepTime', 'GenHealth', 'Smoking', 'AlcoholDrinking', 'PhysicalActivity', 'DiffWalking', 'Stroke', 'Diabetic', 'Asthma', 'KidneyDisease', 'SkinCancer', 'BMI_Category', 'Age_Numeric', 'Health_Score', 'Risk_Score']
+2025-10-26 17:41:47,159 - heart_disease_prediction - INFO - Features after reordering: ['BMI', 'Smoking', 'PhysicalHealth', 'MentalHealth', 'DiffWalking', 'Sex', 'AgeCategory', 'Race', 'Diabetic', 'GenHealth', 'SleepTime', 'BMI_Category', 'Age_Numeric', 'Health_Score', 'Risk_Score']
+2025-10-26 17:41:47,160 - heart_disease_prediction - INFO - Data shape before transformations: (1, 15)
+2025-10-26 17:41:47,164 - heart_disease_prediction - INFO - Features after reordering: ['BMI', 'Smoking', 'PhysicalHealth', 'MentalHealth', 'DiffWalking', 'Sex', 'AgeCategory', 'Race', 'Diabetic', 'GenHealth', 'SleepTime', 'BMI_Category', 'Age_Numeric', 'Health_Score', 'Risk_Score']
+2025-10-26 17:41:47,166 - heart_disease_prediction - INFO - Data shape before transformations: (1, 15)
+2025-10-26 17:41:47,192 - heart_disease_prediction - INFO - Completed label encoding
+2025-10-26 17:41:47,200 - heart_disease_prediction - WARNING - Feature mismatch in scaler:
+2025-10-26 17:41:47,217 - heart_disease_prediction - WARNING -   Expected features: ['BMI', 'Smoking', 'AlcoholDrinking', 'Stroke', 'PhysicalHealth', 'MentalHealth', 'DiffWalking', 'Sex', 'AgeCategory', 'Race', 'Diabetic', 'PhysicalActivity', 'GenHealth', 'SleepTime', 'Asthma', 'KidneyDisease', 'SkinCancer', 'BMI_Category', 'Age_Numeric', 'Health_Score', 'Risk_Score']
+2025-10-26 17:41:47,218 - heart_disease_prediction - WARNING -   Actual features: ['BMI', 'Smoking', 'PhysicalHealth', 'MentalHealth', 'DiffWalking', 'Sex', 'AgeCategory', 'Race', 'Diabetic', 'GenHealth', 'SleepTime', 'BMI_Category', 'Age_Numeric', 'Health_Score', 'Risk_Score']
+2025-10-26 17:41:47,226 - heart_disease_prediction - INFO - Completed label encoding
+2025-10-26 17:41:47,229 - heart_disease_prediction - WARNING -   Adding missing features with default values: ['AlcoholDrinking', 'Stroke', 'PhysicalActivity', 'Asthma', 'KidneyDisease', 'SkinCancer']
+2025-10-26 17:41:47,240 - heart_disease_prediction - WARNING - Feature mismatch in scaler:
+2025-10-26 17:41:47,293 - heart_disease_prediction - WARNING -   Expected features: ['BMI', 'Smoking', 'AlcoholDrinking', 'Stroke', 'PhysicalHealth', 'MentalHealth', 'DiffWalking', 'Sex', 'AgeCategory', 'Race', 'Diabetic', 'PhysicalActivity', 'GenHealth', 'SleepTime', 'Asthma', 'KidneyDisease', 'SkinCancer', 'BMI_Category', 'Age_Numeric', 'Health_Score', 'Risk_Score']
+2025-10-26 17:41:47,305 - heart_disease_prediction - INFO - Data shape before scaling: (1, 21)
+2025-10-26 17:41:47,305 - heart_disease_prediction - WARNING -   Actual features: ['BMI', 'Smoking', 'PhysicalHealth', 'MentalHealth', 'DiffWalking', 'Sex', 'AgeCategory', 'Race', 'Diabetic', 'GenHealth', 'SleepTime', 'BMI_Category', 'Age_Numeric', 'Health_Score', 'Risk_Score']
+2025-10-26 17:41:47,307 - heart_disease_prediction - WARNING -   Adding missing features with default values: ['AlcoholDrinking', 'Stroke', 'PhysicalActivity', 'Asthma', 'KidneyDisease', 'SkinCancer']
+2025-10-26 17:41:47,342 - heart_disease_prediction - INFO - Data shape before scaling: (1, 21)
+2025-10-26 17:41:47,353 - heart_disease_prediction - INFO - Features after scaling: ['BMI', 'Smoking', 'AlcoholDrinking', 'Stroke', 'PhysicalHealth', 'MentalHealth', 'DiffWalking', 'Sex', 'AgeCategory', 'Race', 'Diabetic', 'PhysicalActivity', 'GenHealth', 'SleepTime', 'Asthma', 'KidneyDisease', 'SkinCancer', 'BMI_Category', 'Age_Numeric', 'Health_Score', 'Risk_Score']
+2025-10-26 17:41:47,353 - heart_disease_prediction - INFO - Data shape after scaling: (1, 21)
+2025-10-26 17:41:47,373 - heart_disease_prediction - INFO - Selected 15 out of 21 features
+2025-10-26 17:41:47,385 - heart_disease_prediction - INFO - Final selected features shape: (1, 15)
+2025-10-26 17:41:47,387 - heart_disease_prediction - INFO - Final preprocessed data shape: (1, 15)
+2025-10-26 17:41:47,387 - heart_disease_prediction - INFO - Preprocessed data shape: (1, 15)
+2025-10-26 17:41:47,394 - heart_disease_prediction - INFO - Features after scaling: ['BMI', 'Smoking', 'AlcoholDrinking', 'Stroke', 'PhysicalHealth', 'MentalHealth', 'DiffWalking', 'Sex', 'AgeCategory', 'Race', 'Diabetic', 'PhysicalActivity', 'GenHealth', 'SleepTime', 'Asthma', 'KidneyDisease', 'SkinCancer', 'BMI_Category', 'Age_Numeric', 'Health_Score', 'Risk_Score']
+2025-10-26 17:41:47,396 - heart_disease_prediction - INFO - Data shape after scaling: (1, 21)
+2025-10-26 17:41:47,417 - heart_disease_prediction - INFO - Selected 15 out of 21 features
+2025-10-26 17:41:47,423 - heart_disease_prediction - INFO - Final selected features shape: (1, 15)
+2025-10-26 17:41:47,424 - heart_disease_prediction - INFO - Final preprocessed data shape: (1, 15)
+2025-10-26 17:41:47,425 - heart_disease_prediction - INFO - Preprocessed data shape: (1, 15)
+2025-10-26 17:41:47,557 - heart_disease_prediction - INFO - Raw prediction probabilities: [[0.95 0.05]]
+2025-10-26 17:41:47,559 - heart_disease_prediction - INFO - Raw prediction probabilities: [[0.95 0.05]]
+2025-10-26 17:41:47,560 - heart_disease_prediction - INFO - Prediction successful. Risk level: Low Risk, Probability: 0.0500
+2025-10-26 17:41:47,564 - heart_disease_prediction - INFO - Prediction successful. Risk level: Low Risk, Probability: 0.0500
+2025-10-26 17:45:14,950 - heart_disease_prediction - INFO - Plotting configuration initialized
+2025-10-26 17:45:15,404 - heart_disease_prediction - INFO - Model loaded successfully from E:\Heart-Disease\app\models\best_model.pkl
+2025-10-26 17:45:15,404 - heart_disease_prediction - INFO - Model type: RandomForestClassifier
+2025-10-26 17:45:15,481 - heart_disease_prediction - INFO - Model has feature importances
+2025-10-26 17:45:15,481 - heart_disease_prediction - INFO - Model expects 15 features
+2025-10-26 17:45:15,483 - heart_disease_prediction - INFO - scaler loaded successfully
+2025-10-26 17:45:15,485 - heart_disease_prediction - INFO - label_encoders loaded successfully
+2025-10-26 17:45:15,487 - heart_disease_prediction - INFO - target_encoder loaded successfully
+2025-10-26 17:45:15,500 - heart_disease_prediction - INFO - smote loaded successfully
+2025-10-26 17:45:15,537 - heart_disease_prediction - INFO - feature_selector loaded successfully
+2025-10-26 17:54:12,872 - heart_disease_prediction - INFO - Plotting configuration initialized
+2025-10-26 17:54:13,306 - heart_disease_prediction - INFO - Model loaded successfully from E:\Heart-Disease\app\models\best_model.pkl
+2025-10-26 17:54:13,306 - heart_disease_prediction - INFO - Model type: RandomForestClassifier
+2025-10-26 17:54:13,399 - heart_disease_prediction - INFO - Model has feature importances
+2025-10-26 17:54:13,399 - heart_disease_prediction - INFO - Model expects 15 features
+2025-10-26 17:54:13,402 - heart_disease_prediction - INFO - scaler loaded successfully
+2025-10-26 17:54:13,404 - heart_disease_prediction - INFO - label_encoders loaded successfully
+2025-10-26 17:54:13,406 - heart_disease_prediction - INFO - target_encoder loaded successfully
+2025-10-26 17:54:13,418 - heart_disease_prediction - INFO - smote loaded successfully
+2025-10-26 17:54:13,515 - heart_disease_prediction - INFO - feature_selector loaded successfully
+2025-10-26 17:55:24,698 - heart_disease_prediction - INFO - Plotting configuration initialized
+2025-10-26 17:55:25,332 - heart_disease_prediction - INFO - Model loaded successfully from E:\Heart-Disease\app\models\best_model.pkl
+2025-10-26 17:55:25,332 - heart_disease_prediction - INFO - Model type: RandomForestClassifier
+2025-10-26 17:55:25,423 - heart_disease_prediction - INFO - Model has feature importances
+2025-10-26 17:55:25,423 - heart_disease_prediction - INFO - Model expects 15 features
+2025-10-26 17:55:25,425 - heart_disease_prediction - INFO - scaler loaded successfully
+2025-10-26 17:55:25,427 - heart_disease_prediction - INFO - label_encoders loaded successfully
+2025-10-26 17:55:25,428 - heart_disease_prediction - INFO - target_encoder loaded successfully
+2025-10-26 17:55:25,441 - heart_disease_prediction - INFO - smote loaded successfully
+2025-10-26 17:55:25,487 - heart_disease_prediction - INFO - feature_selector loaded successfully
