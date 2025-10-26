@@ -1,0 +1,118 @@
+{
+  "dataset_info": {
+    "shape": [
+      319795,
+      18
+    ],
+    "target_distribution": {
+      "No": 292422,
+      "Yes": 27373
+    }
+  },
+  "best_model": "Random Forest",
+  "model_path": "./models\\heart_disease_model_random forest_20251025_221307.pkl",
+  "final_metrics": {
+    "Balanced Test Set": {
+      "accuracy": 0.9265617385803075,
+      "precision": 0.944007403979639,
+      "recall": 0.9069147117160249,
+      "f1": 0.9250893869364263,
+      "auc": 0.9718189087163178
+    },
+    "Original Test Set": {
+      "accuracy": 0.9359746087337201,
+      "precision": 0.5959399332591768,
+      "recall": 0.7828310502283105,
+      "f1": 0.6767190337096393,
+      "auc": 0.941489608522676
+    }
+  },
+  "cv_results": {
+    "Random Forest": {
+      "accuracy": {
+        "mean": 0.9210964459506118,
+        "std": 0.00030534458637612
+      },
+      "precision": {
+        "mean": 0.936016847303287,
+        "std": 0.0005162861044815179
+      },
+      "recall": {
+        "mean": 0.9039873812136349,
+        "std": 0.0006126133310993929
+      },
+      "f1": {
+        "mean": 0.9197230992161366,
+        "std": 0.0003183408141085237
+      },
+      "roc_auc": {
+        "mean": 0.9695566078725874,
+        "std": 0.00030349189651096006
+      }
+    },
+    "XGBoost": {
+      "accuracy": {
+        "mean": 0.9198738969919216,
+        "std": 0.0003315625457738577
+      },
+      "precision": {
+        "mean": 0.9527692282584007,
+        "std": 0.0010908706994376316
+      },
+      "recall": {
+        "mean": 0.8835503347928215,
+        "std": 0.0014507995170413572
+      },
+      "f1": {
+        "mean": 0.9168535229065972,
+        "std": 0.0004094652893643144
+      },
+      "roc_auc": {
+        "mean": 0.9750709488613046,
+        "std": 0.00011498921797735042
+      }
+    },
+    "Logistic Regression": {
+      "accuracy": {
+        "mean": 0.750937750666262,
+        "std": 0.0005640285507899823
+      },
+      "precision": {
+        "mean": 0.7383377954494921,
+        "std": 0.0010145865837299553
+      },
+      "recall": {
+        "mean": 0.7773769098497804,
+        "std": 0.0005484914799099931
+      },
+      "f1": {
+        "mean": 0.7573538130395226,
+        "std": 0.00031081821124338555
+      },
+      "roc_auc": {
+        "mean": 0.8256290895322514,
+        "std": 0.0007100066205472819
+      }
+    }
+  },
+  "performance_valid": true,
+  "selected_features": [
+    "BMI",
+    "Smoking",
+    "PhysicalHealth",
+    "MentalHealth",
+    "DiffWalking",
+    "Sex",
+    "AgeCategory",
+    "Race",
+    "Diabetic",
+    "GenHealth",
+    "SleepTime",
+    "BMI_Category",
+    "Age_Numeric",
+    "Health_Score",
+    "Risk_Score"
+  ],
+  "pipeline_status": "SUCCESS",
+  "timestamp": "2025-10-25T22:13:14.433790"
+}

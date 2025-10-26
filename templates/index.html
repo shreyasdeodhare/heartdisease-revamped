@@ -1,0 +1,194 @@
+{% extends "base.html" %}
+
+{% block title %}Home - HeartGuard AI{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <span class="text-gradient">HeartGuard AI</span>
+                        <br>Advanced Heart Disease Prediction
+                    </h1>
+                    <p class="hero-description">
+                        Leverage the power of machine learning to predict heart disease risk with 
+                        advanced algorithms including XGBoost, LightGBM, and ensemble methods.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <h3 class="stat-number">95%+</h3>
+                            <p class="stat-label">Accuracy</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3 class="stat-number">17</h3>
+                            <p class="stat-label">Health Factors</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3 class="stat-number">AI</h3>
+                            <p class="stat-label">Powered</p>
+                        </div>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="{{ url_for('predict_page') }}" class="btn btn-primary btn-lg me-3">
+                            <i class="fas fa-stethoscope me-2"></i>Get Prediction
+                        </a>
+                        <a href="{{ url_for('analysis_page') }}" class="btn btn-outline-primary btn-lg">
+                            <i class="fas fa-chart-line me-2"></i>View Analysis
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="hero-visual">
+                    <div class="floating-cards">
+                        <div class="floating-card card-1">
+                            <i class="fas fa-heartbeat"></i>
+                            <h6>Heart Rate</h6>
+                        </div>
+                        <div class="floating-card card-2">
+                            <i class="fas fa-weight"></i>
+                            <h6>BMI Analysis</h6>
+                        </div>
+                        <div class="floating-card card-3">
+                            <i class="fas fa-running"></i>
+                            <h6>Physical Activity</h6>
+                        </div>
+                        <div class="floating-card card-4">
+                            <i class="fas fa-bed"></i>
+                            <h6>Sleep Quality</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center mb-5">
+                <h2 class="section-title">Advanced AI Features</h2>
+                <p class="section-description">
+                    Our system uses state-of-the-art machine learning techniques to provide 
+                    accurate heart disease predictions.
+                </p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h5>Machine Learning</h5>
+                    <p>Advanced algorithms including XGBoost, LightGBM, and Random Forest for accurate predictions.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h5>Class Balancing</h5>
+                    <p>SMOTE, ADASYN, and advanced sampling techniques to handle imbalanced datasets.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h5>Feature Selection</h5>
+                    <p>Intelligent feature selection using RFE and statistical tests for optimal performance.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h5>Cross-Validation</h5>
+                    <p>5-fold stratified cross-validation ensures robust and reliable model performance.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h5>Hyperparameter Tuning</h5>
+                    <p>Automated hyperparameter optimization using RandomizedSearchCV for best results.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h5>Risk Assessment</h5>
+                    <p>Comprehensive risk analysis with personalized recommendations for better health.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works Section -->
+<section class="how-it-works-section py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center mb-5">
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-description">
+                    Simple steps to get your heart disease risk assessment
+                </p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h5>Input Health Data</h5>
+                    <p>Provide your health information including BMI, lifestyle factors, and medical history.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h5>AI Analysis</h5>
+                    <p>Our advanced AI algorithms analyze your data using multiple machine learning models.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h5>Get Results</h5>
+                    <p>Receive your risk assessment with personalized recommendations for better health.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="cta-title">Ready to Check Your Heart Health?</h2>
+                <p class="cta-description">
+                    Get your personalized heart disease risk assessment in just a few minutes.
+                </p>
+                <a href="{{ url_for('predict_page') }}" class="btn btn-primary btn-lg">
+                    <i class="fas fa-stethoscope me-2"></i>Start Prediction
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,46 @@
+=== HEART DISEASE PREDICTION - PIPELINE SUMMARY ===
+
+Dataset: 319795 samples, 18 features
+Target distribution: {'No': 292422, 'Yes': 27373}
+Best model: Random Forest
+Performance valid: True
+Selected features: 15
+
+=== FINAL METRICS ===
+
+Balanced Test Set:
+  accuracy: 0.927
+  precision: 0.944
+  recall: 0.907
+  f1: 0.925
+  auc: 0.972
+
+Original Test Set:
+  accuracy: 0.936
+  precision: 0.596
+  recall: 0.783
+  f1: 0.677
+  auc: 0.941
+
+=== CROSS-VALIDATION RESULTS ===
+
+Random Forest:
+  accuracy: 0.921 (+/- 0.001)
+  precision: 0.936 (+/- 0.001)
+  recall: 0.904 (+/- 0.001)
+  f1: 0.920 (+/- 0.001)
+  roc_auc: 0.970 (+/- 0.001)
+
+XGBoost:
+  accuracy: 0.920 (+/- 0.001)
+  precision: 0.953 (+/- 0.002)
+  recall: 0.884 (+/- 0.003)
+  f1: 0.917 (+/- 0.001)
+  roc_auc: 0.975 (+/- 0.000)
+
+Logistic Regression:
+  accuracy: 0.751 (+/- 0.001)
+  precision: 0.738 (+/- 0.002)
+  recall: 0.777 (+/- 0.001)
+  f1: 0.757 (+/- 0.001)
+  roc_auc: 0.826 (+/- 0.001)

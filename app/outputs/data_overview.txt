@@ -1,0 +1,6 @@
+=== DATA OVERVIEW ===
+Dataset shape: (319795, 22)
+Memory usage: 53.68 MB
+Data types: {dtype('int64'): 17, dtype('float64'): 5}
+Missing values: {'HeartDisease': 0, 'BMI': 0, 'Smoking': 0, 'AlcoholDrinking': 0, 'Stroke': 0, 'PhysicalHealth': 0, 'MentalHealth': 0, 'DiffWalking': 0, 'Sex': 0, 'AgeCategory': 0, 'Race': 0, 'Diabetic': 0, 'PhysicalActivity': 0, 'GenHealth': 0, 'SleepTime': 0, 'Asthma': 0, 'KidneyDisease': 0, 'SkinCancer': 0, 'BMI_Category': 0, 'Age_Numeric': 0, 'Health_Score': 0, 'Risk_Score': 0}
+Target distribution: {0: 292422, 1: 27373}
