@@ -136,3 +136,5 @@ ENV MODEL_DIR=/app/models
 - ❌ Don't hardcode sensitive information
 - ❌ Don't commit production secrets
 - ❌ Don't use complex types without proper conversion
+
+

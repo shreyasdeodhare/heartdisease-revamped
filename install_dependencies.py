@@ -72,3 +72,5 @@ if __name__ == "__main__":
             print("\n❌ Installation check failed. Please install missing packages manually.")
     else:
         print("\n❌ Installation failed. Please check the error messages above.")
+
+

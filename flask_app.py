@@ -213,10 +213,7 @@ def predict():
         try:
             # Convert to DataFrame for preprocessing
             input_df = pd.DataFrame([form_data])
-            
-            # Log input data before preprocessing
-            aop_logger.info(f"Input data before preprocessing: {input_df.to_dict(orient='records')[0]}")
-            
+
             # Preprocess input data
             preprocessed_data = preprocess_user_input(input_df)
             aop_logger.info(f"Preprocessed data shape: {preprocessed_data.shape}")
@@ -225,37 +222,15 @@ def predict():
             model = loaded_models['best_model']
             
             # Ensure we have the right number of features
-            if hasattr(model, 'n_features_in_'):
-                expected_features = model.n_features_in_
-                if preprocessed_data.shape[1] != expected_features:
-                    error_msg = f"Feature count mismatch. Expected {expected_features} features, got {preprocessed_data.shape[1]}"
-                    aop_logger.error(error_msg)
-                    aop_logger.error(f"Expected features: {model.feature_names_in_ if hasattr(model, 'feature_names_in_') else 'Not available'}")
-                    aop_logger.error(f"Received features: {preprocessed_data.columns.tolist()}")
-                    return jsonify({
-                        'error': error_msg,
-                        'status': 'error',
-                        'expected_features': expected_features,
-                        'received_features': preprocessed_data.shape[1]
-                    }), 400
+            if hasattr(model, 'n_features_in_') and preprocessed_data.shape[1] != model.n_features_in_:
+                return jsonify({
+                    'error': f"Feature count mismatch. Expected {model.n_features_in_} features, got {preprocessed_data.shape[1]}",
+                    'status': 'error'
+                }), 400
             
             # Make prediction
-            try:
-                prediction_proba = model.predict_proba(preprocessed_data)
-                probability = float(prediction_proba[0][1])  # Probability of heart disease
-                aop_logger.info(f"Raw prediction probabilities: {prediction_proba}")
-            except Exception as pred_error:
-                aop_logger.error(f"Prediction error: {str(pred_error)}", exc_info=True)
-                return jsonify({
-                    'error': f'Error making prediction: {str(pred_error)}',
-                    'status': 'error',
-                    'input_features': preprocessed_data.columns.tolist(),
-                    'input_values': preprocessed_data.values.tolist()[0]
-                }), 500
-            
-            # Ensure probability is valid
-            if pd.isna(probability) or probability < 0 or probability > 1:
-                raise ValueError(f"Invalid probability value: {probability}")
+            prediction_proba = model.predict_proba(preprocessed_data)[0]
+            probability = float(prediction_proba[1])  # Probability of heart disease
             
             # Get risk level and recommendations
             risk_level = get_risk_level(probability)

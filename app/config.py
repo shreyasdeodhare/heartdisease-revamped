@@ -1,6 +1,4 @@
-"""
-Configuration management for Heart Disease Prediction application
-"""
+
 
 import os
 from dotenv import load_dotenv
@@ -246,3 +244,4 @@ class Config:
 
 # Create global config instance
 config = Config()
+
