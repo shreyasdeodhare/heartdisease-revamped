@@ -340,16 +340,24 @@ class ModelService:
                     'feature_names': feature_names
                 }
             
-            # Generate timestamp for the model file
+            # Generate timestamped filename (kept for auditability)
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
             model_name = f"heart_disease_model_{model.__class__.__name__.lower()}_{timestamp}.pkl"
             model_path = os.path.join(output_dir, model_name)
             
-            # Save using joblib which is better for scikit-learn models
+            # Save using joblib (preferred)
             joblib.dump(model_data, model_path, protocol=pickle.HIGHEST_PROTOCOL)
             self.logger.info(f"Best model saved to {model_path}")
+
+            # Also save a fixed-name best model without timestamp for deployment simplicity
+            best_fixed_joblib = os.path.join(output_dir, 'best.joblib')
+            try:
+                joblib.dump(model_data, best_fixed_joblib, protocol=pickle.HIGHEST_PROTOCOL)
+                self.logger.info(f"Fixed-name best model saved to {best_fixed_joblib}")
+            except Exception as e:
+                self.logger.warning(f"Failed to save fixed-name best model: {e}")
             
-            # Create a symlink for latest model
+            # Ensure a 'latest' pointer exists; try symlink then fall back to copy
             latest_path = os.path.join(output_dir, 'heart_disease_model_latest.pkl')
             try:
                 if os.path.exists(latest_path):
@@ -357,7 +365,13 @@ class ModelService:
                 os.symlink(model_name, latest_path)
                 self.logger.info(f"Symlink created at {latest_path}")
             except OSError as e:
-                self.logger.warning(f"Could not create symlink: {str(e)}")
+                self.logger.warning(f"Could not create symlink: {str(e)}; falling back to copy")
+                try:
+                    import shutil
+                    shutil.copy2(model_path, latest_path)
+                    self.logger.info(f"Copied latest model to {latest_path}")
+                except Exception as e2:
+                    self.logger.warning(f"Failed to copy latest model: {e2}")
         
         # Save all trained models
         with open(os.path.join(output_dir, 'all_models.pkl'), 'wb') as f:
@@ -381,9 +395,9 @@ class ModelService:
         self.logger.info("Validating model performance")
         
         thresholds = {
-            'accuracy': config.thresholds.min_accuracy_threshold,
-            'f1': config.thresholds.min_f1_threshold,
-            'auc': config.thresholds.min_auc_threshold
+            'accuracy': config.performance.min_accuracy_threshold,
+            'f1': config.performance.min_f1_threshold,
+            'auc': config.performance.min_auc_threshold
         }
         
         for dataset_name, metrics in final_metrics.items():

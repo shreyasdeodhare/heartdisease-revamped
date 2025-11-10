@@ -218,12 +218,3 @@ For issues or questions:
 2. Review the configuration in `config.env`
 3. Examine the output files in `./outputs/`
 4. Check the saved models in `./models/`
-
-## 🔄 Migration from Notebook
-
-This application is a complete conversion of the Jupyter notebook with:
-- **Same functionality**: All notebook features preserved
-- **Better architecture**: Service-oriented design
-- **Enhanced features**: Advanced ML techniques
-- **Production ready**: Error handling, logging, configuration
-- **Maintainable**: Modular, documented, tested code

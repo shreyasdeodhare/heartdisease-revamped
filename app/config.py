@@ -3,6 +3,7 @@
 import os
 from dotenv import load_dotenv
 from pathlib import Path
+import ast
 
 # Load environment variables from configs folder
 config_path = Path(__file__).parent.parent / 'configs' / 'config.env'
@@ -20,6 +21,7 @@ class DataConfig:
         self._dataset_path = get_env("DATASET_PATH", "./data/heart_disease.csv")
         self._output_dir = get_env("OUTPUT_DIR", "./outputs")
         self._model_dir = get_env("MODEL_DIR", "./models")
+        self._best_model = get_env("BEST_MODEL", "")
 
     # Lowercase properties
     @property
@@ -30,6 +32,8 @@ class DataConfig:
     def output_dir(self): return self._output_dir
     @property
     def model_dir(self): return self._model_dir
+    @property
+    def best_model(self): return self._best_model
 
     # Uppercase properties
     @property
@@ -40,6 +44,8 @@ class DataConfig:
     def OUTPUT_DIR(self): return self._output_dir
     @property
     def MODEL_DIR(self): return self._model_dir
+    @property
+    def BEST_MODEL(self): return self._best_model
 
 class ModelConfig:
     """Model configuration settings"""
@@ -115,9 +121,9 @@ class LoggingConfig:
 class VisualizationConfig:
     """Visualization configuration settings"""
     def __init__(self):
-        self._figure_size_large = eval(get_env("FIGURE_SIZE_LARGE", "(18, 12)"))
-        self._figure_size_medium = eval(get_env("FIGURE_SIZE_MEDIUM", "(12, 8)"))
-        self._figure_size_small = eval(get_env("FIGURE_SIZE_SMALL", "(10, 6)"))
+        self._figure_size_large = ast.literal_eval(get_env("FIGURE_SIZE_LARGE", "(18, 12)"))
+        self._figure_size_medium = ast.literal_eval(get_env("FIGURE_SIZE_MEDIUM", "(12, 8)"))
+        self._figure_size_small = ast.literal_eval(get_env("FIGURE_SIZE_SMALL", "(10, 6)"))
         self._dpi = int(get_env("DPI", "300"))
         self._style = get_env("STYLE", "seaborn-v0_8")
 

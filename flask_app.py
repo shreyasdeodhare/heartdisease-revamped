@@ -5,6 +5,7 @@ Flask web application for Heart Disease Prediction
 import os
 import sys
 import pickle
+import joblib
 import numpy as np
 import pandas as pd
 from flask import Flask, render_template, request, jsonify, session
@@ -64,8 +65,8 @@ except ImportError as e:
     aop_logger = MinimalLogger()
 
 app = Flask(__name__)
-app.secret_key = os.getenv('SECRET_KEY', 'heart_disease_prediction_secret_key_2024')
-app.config['DEBUG'] = os.getenv('DEBUG', 'true').lower() == 'true'
+app.secret_key = os.getenv('SECRET_KEY') or os.urandom(32)
+app.config['DEBUG'] = os.getenv('DEBUG', 'false').lower() == 'true'
 
 # Initialize services
 data_service = DataService()
@@ -81,59 +82,99 @@ def load_models():
     global loaded_models, preprocessing_artifacts
     
     try:
-        model_dir = os.getenv('MODEL_DIR', './app/models')
+        # Get model directory from config or environment
+        model_dir = os.getenv('MODEL_DIR') or getattr(config.data, 'model_dir', './models')
         os.makedirs(model_dir, exist_ok=True)
+        aop_logger.info(f"Model directory: {model_dir}")
+        aop_logger.info(f"Model directory exists: {os.path.exists(model_dir)}")
         
         # Load the best model directly
-        model_path = os.path.join(model_dir, 'best_model.pkl')
+        # Preference order:
+        # 1) BEST_MODEL env path if set and exists
+        # 2) MODEL_DIR/best.joblib or MODEL_DIR/best.pkl (fixed name)
+        # 3) MODEL_DIR/heart_disease_model_latest.pkl
+        # 4) Newest file matching MODEL_DIR/heart_disease_model_*.pkl or *.joblib
+        best_model_env = os.getenv('BEST_MODEL')
+        aop_logger.info(f"BEST_MODEL environment variable: {best_model_env}")
+        model_path = None
+        if best_model_env and os.path.exists(best_model_env):
+            model_path = best_model_env
+            aop_logger.info(f"Using BEST_MODEL path: {model_path}")
+        else:
+            candidate_latest = os.path.join(model_dir, 'heart_disease_model_latest.pkl')
+            # Check fixed-name best files first
+            for fixed in ['best.joblib', 'best.pkl']:
+                fixed_path = os.path.join(model_dir, fixed)
+                aop_logger.info(f"Checking for model at: {fixed_path} (exists: {os.path.exists(fixed_path)})")
+                if os.path.exists(fixed_path):
+                    model_path = fixed_path
+                    aop_logger.info(f"Found model at: {model_path}")
+                    break
+            if not model_path and os.path.exists(candidate_latest):
+                model_path = candidate_latest
+            if not model_path:
+                try:
+                    import glob
+                    candidates = []
+                    candidates.extend(glob.glob(os.path.join(model_dir, 'heart_disease_model_*.pkl')))
+                    candidates.extend(glob.glob(os.path.join(model_dir, 'heart_disease_model_*.joblib')))
+                    if candidates:
+                        model_path = max(candidates, key=os.path.getmtime)
+                except Exception:
+                    model_path = None
         
-        if os.path.exists(model_path):
+        if model_path and os.path.exists(model_path):
             try:
-                with open(model_path, 'rb') as f:
-                    model_data = pickle.load(f)
-                    
-                    # Handle different model formats
-                    if isinstance(model_data, dict):
-                        # If model is stored in a dictionary with 'model' key
-                        if 'model' in model_data:
-                            model = model_data['model']
-                            # If model is a scikit-learn pipeline, get the final estimator
-                            if hasattr(model, 'steps') and len(model.steps) > 0:
-                                model = model.steps[-1][1]
-                        else:
-                            # If no 'model' key, try to find the model object
-                            model = None
-                            for key, value in model_data.items():
-                                if hasattr(value, 'predict_proba'):
-                                    model = value
-                                    break
-                            if model is None:
-                                aop_logger.error("No valid model found in the pickle file")
-                                return False
+                # Load bytes -> model_data using appropriate loader
+                if model_path.lower().endswith('.joblib'):
+                    model_data = joblib.load(model_path)
+                else:
+                    try:
+                        with open(model_path, 'rb') as f:
+                            model_data = pickle.load(f)
+                    except Exception:
+                        # Fallback to joblib if pickle fails
+                        model_data = joblib.load(model_path)
+
+                # Normalize into a concrete estimator object
+                if isinstance(model_data, dict):
+                    if 'model' in model_data:
+                        model = model_data['model']
+                        # If it's a pipeline, extract final estimator
+                        if hasattr(model, 'steps') and len(model.steps) > 0:
+                            model = model.steps[-1][1]
                     else:
-                        # If it's a direct model object
-                        model = model_data
-                    
-                    # Ensure the model has predict_proba method
-                    if not hasattr(model, 'predict_proba'):
-                        aop_logger.error("Loaded model does not have predict_proba method")
-                        return False
-                        
-                    loaded_models['best_model'] = model
-                    aop_logger.info(f"Model loaded successfully from {model_path}")
-                    aop_logger.info(f"Model type: {type(model).__name__}")
-                    
-                    # Log model attributes for debugging
-                    if hasattr(model, 'feature_importances_'):
-                        aop_logger.info(f"Model has feature importances")
-                    if hasattr(model, 'n_features_in_'):
-                        aop_logger.info(f"Model expects {model.n_features_in_} features")
-                    
+                        model = None
+                        for _k, _v in model_data.items():
+                            if hasattr(_v, 'predict_proba'):
+                                model = _v
+                                break
+                        if model is None:
+                            aop_logger.error("No valid model found in the model artifact")
+                            return False
+                else:
+                    model = model_data
+
+                # Validate required API
+                if not hasattr(model, 'predict_proba'):
+                    aop_logger.error("Loaded model does not have predict_proba method")
+                    return False
+
+                loaded_models['best_model'] = model
+                aop_logger.info(f"Model loaded successfully from {model_path}")
+                aop_logger.info(f"Model type: {type(model).__name__}")
+
+                # Log useful attributes
+                if hasattr(model, 'feature_importances_'):
+                    aop_logger.info(f"Model has feature importances")
+                if hasattr(model, 'n_features_in_'):
+                    aop_logger.info(f"Model expects {model.n_features_in_} features")
+
             except Exception as e:
                 aop_logger.error(f"Error loading model from {model_path}: {str(e)}")
                 return False
         else:
-            aop_logger.error(f"Model not found at {model_path}")
+            aop_logger.error(f"Model not found. Checked BEST_MODEL={best_model_env} and {os.path.join(model_dir, 'heart_disease_model_latest.pkl')} and pattern heart_disease_model_*.pkl in {model_dir}")
             return False
         
         # Load preprocessing artifacts with specific paths
@@ -152,16 +193,32 @@ def load_models():
         
         for artifact_name, artifact_path in artifacts.items():
             artifact_path = os.path.join(model_dir, artifact_path)
+            aop_logger.info(f"Checking for {artifact_name} at: {artifact_path} (exists: {os.path.exists(artifact_path)})")
             if os.path.exists(artifact_path):
-                with open(artifact_path, 'rb') as f:
-                    preprocessing_artifacts[artifact_name] = pickle.load(f)
-                aop_logger.info(f"{artifact_name} loaded successfully")
+                try:
+                    with open(artifact_path, 'rb') as f:
+                        preprocessing_artifacts[artifact_name] = pickle.load(f)
+                    aop_logger.info(f"✅ {artifact_name} loaded successfully")
+                except Exception as e:
+                    aop_logger.error(f"❌ Failed to load {artifact_name} from {artifact_path}: {str(e)}")
+            else:
+                aop_logger.warning(f"⚠️  {artifact_name} not found at {artifact_path} (optional, continuing...)")
         
         return True
         
     except Exception as e:
         aop_logger.error(f"Failed to load models: {str(e)}")
         return False
+
+# Attempt to load models at startup (after definition)
+try:
+    if load_models():
+        aop_logger.info("✅ Models loaded successfully at startup")
+    else:
+        aop_logger.warning("⚠️  Model loading at startup returned False; will attempt on-demand.")
+except Exception as e:
+    aop_logger.error(f"❌ Model loading at startup failed with error: {str(e)}", exc_info=True)
+    aop_logger.info("Will attempt on-demand loading when first prediction request arrives.")
 
 @app.route('/')
 def index():
@@ -188,10 +245,13 @@ def predict():
     """API endpoint for heart disease prediction"""
     try:
         if 'best_model' not in loaded_models or loaded_models['best_model'] is None:
-            return jsonify({'error': 'Model not loaded. Please try again later.', 'status': 'error'}), 503
+            # Attempt on-demand load once
+            aop_logger.info("Model not loaded at request time; attempting on-demand load...")
+            if not load_models() or 'best_model' not in loaded_models or loaded_models['best_model'] is None:
+                return jsonify({'error': 'Model not loaded. Please try again later.', 'status': 'error'}), 503
             
         # Get form data
-        form_data = request.get_json()
+        form_data = request.get_json() or {}
         aop_logger.info(f"Received prediction request with data: {form_data}")
         
         # Validate required fields
@@ -211,6 +271,8 @@ def predict():
             }), 400
         
         try:
+            # Validate and coerce inputs
+            form_data = validate_and_coerce_input(form_data)
             # Convert to DataFrame for preprocessing
             input_df = pd.DataFrame([form_data])
 
@@ -262,6 +324,39 @@ def predict():
             'error': 'An unexpected error occurred while processing your request.',
             'status': 'error'
         }), 500
+
+def validate_and_coerce_input(data: dict) -> dict:
+    """Minimal schema validation and type coercion for prediction input"""
+    out = dict(data)
+    # Numeric fields
+    for k in ['BMI', 'PhysicalHealth', 'MentalHealth', 'SleepTime', 'Age_Numeric', 'Health_Score', 'Risk_Score']:
+        if k in out:
+            try:
+                out[k] = float(out[k])
+            except Exception:
+                out[k] = 0.0
+    # Binary Yes/No fields
+    yn_fields = ['Smoking','AlcoholDrinking','Stroke','DiffWalking','PhysicalActivity','Asthma','KidneyDisease','SkinCancer']
+    for k in yn_fields:
+        if k in out:
+            v = str(out[k]).strip().lower()
+            out[k] = 'Yes' if v in ['yes','y','true','1'] else 'No'
+    # Categoricals with fallback
+    if 'Sex' in out:
+        v = str(out['Sex']).strip().capitalize()
+        out['Sex'] = v if v in ['Male','Female'] else 'Unknown'
+    if 'GenHealth' in out:
+        v = str(out['GenHealth']).strip()
+        allowed = {'Poor','Fair','Good','Very good','Excellent'}
+        out['GenHealth'] = v if v in allowed else 'Good'
+    if 'AgeCategory' in out:
+        v = str(out['AgeCategory']).strip()
+        allowed_age = {'18-24','25-29','30-34','35-39','40-44','45-49','50-54','55-59','60-64','65-69','70-74','75-79','80 or older'}
+        out['AgeCategory'] = v if v in allowed_age else 'Unknown'
+    if 'Race' in out:
+        v = str(out['Race']).strip()
+        out['Race'] = v if v else 'Unknown'
+    return out
 
 def preprocess_user_input(user_data):
     """Preprocess user input data to match training pipeline exactly"""
@@ -661,6 +756,10 @@ def get_analysis_data():
         # Try to load real data first
         try:
             df = data_service.load_data()
+            # Ensure HeartDisease is numeric for aggregations
+            df = df.copy()
+            if 'HeartDisease' in df.columns:
+                df['HeartDisease'] = (df['HeartDisease'].astype(str).str.lower() == 'yes').astype(int)
             
             # Generate analysis data from real data
             analysis_data = {
@@ -691,19 +790,19 @@ def get_risk_factors_analysis(df):
     """Analyze risk factors from the dataset"""
     try:
         risk_factors = {}
-        
+        # Coerce HeartDisease to numeric 0/1 if needed
+        if 'HeartDisease' in df.columns and df['HeartDisease'].dtype != 'int64' and df['HeartDisease'].dtype != 'int32':
+            df = df.copy()
+            df['HeartDisease'] = (df['HeartDisease'].astype(str).str.lower() == 'yes').astype(int)
         # Define the risk factors to analyze
         factors = ['Smoking', 'AlcoholDrinking', 'Stroke', 'Diabetic', 
-                  'Asthma', 'KidneyDisease', 'SkinCancer']
-        
+                   'Asthma', 'KidneyDisease', 'SkinCancer']
         for factor in factors:
             if factor in df.columns:
-                # Calculate heart disease rate for each category
-                factor_analysis = df.groupby(factor)['HeartDisease'].mean().to_dict()
-                risk_factors[factor] = {str(k): float(v) for k, v in factor_analysis.items()}
-        
+                factor_analysis = df.groupby(factor)['HeartDisease'].mean(numeric_only=True)
+                risk_factors[factor] = {str(k): float(v) for k, v in factor_analysis.to_dict().items()}
         return risk_factors
-        
+    
     except Exception as e:
         aop_logger.logger.error(f"Error analyzing risk factors: {str(e)}")
         # Return sample data if there's an error
@@ -741,21 +840,9 @@ def get_feature_importance():
         'Race': 0.03
     }
 
-def get_risk_factors_analysis(df):
-    """Get risk factors analysis"""
-    risk_factors = ['Smoking', 'AlcoholDrinking', 'Stroke', 'Diabetic', 
-                   'Asthma', 'KidneyDisease', 'SkinCancer']
-    
-    analysis = {}
-    for factor in risk_factors:
-        if factor in df.columns:
-            factor_analysis = df.groupby(factor)['HeartDisease'].mean()
-            analysis[factor] = {
-                'Yes': float(factor_analysis.get('Yes', 0)),
-                'No': float(factor_analysis.get('No', 0))
-            }
-    
-    return analysis
+def get_risk_factors_analysis_legacy(df):
+    """Legacy wrapper retained for compatibility; delegates to robust implementation"""
+    return get_risk_factors_analysis(df)
 
 @app.route('/api/health-tips')
 def get_health_tips():

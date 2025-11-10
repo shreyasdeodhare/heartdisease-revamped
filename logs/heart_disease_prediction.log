@@ -1,0 +1,62 @@
+2025-11-09 14:37:31,569 - heart_disease_prediction - INFO - Plotting configuration initialized
+2025-11-09 14:37:31,569 - heart_disease_prediction - INFO - Plotting configuration initialized
+2025-11-09 14:37:31,569 - heart_disease_prediction - INFO - Plotting configuration initialized
+2025-11-09 14:37:31,570 - heart_disease_prediction - INFO - Plotting configuration initialized
+2025-11-09 14:37:31,593 - heart_disease_prediction - ERROR - Model not found. Checked BEST_MODEL=/app/models/best.joblib and /app/models/heart_disease_model_latest.pkl and pattern heart_disease_model_*.pkl in /app/models
+2025-11-09 14:37:31,593 - heart_disease_prediction - ERROR - Model not found. Checked BEST_MODEL=/app/models/best.joblib and /app/models/heart_disease_model_latest.pkl and pattern heart_disease_model_*.pkl in /app/models
+2025-11-09 14:37:31,593 - heart_disease_prediction - ERROR - Model not found. Checked BEST_MODEL=/app/models/best.joblib and /app/models/heart_disease_model_latest.pkl and pattern heart_disease_model_*.pkl in /app/models
+2025-11-09 14:37:31,593 - heart_disease_prediction - ERROR - Model not found. Checked BEST_MODEL=/app/models/best.joblib and /app/models/heart_disease_model_latest.pkl and pattern heart_disease_model_*.pkl in /app/models
+2025-11-10 07:15:49,297 - heart_disease_prediction - INFO - Plotting configuration initialized
+2025-11-10 07:15:49,331 - heart_disease_prediction - INFO - Model directory: /app/models
+2025-11-10 07:15:49,333 - heart_disease_prediction - INFO - Model directory exists: True
+2025-11-10 07:15:49,334 - heart_disease_prediction - INFO - BEST_MODEL environment variable: /app/models/best.joblib
+2025-11-10 07:15:49,336 - heart_disease_prediction - INFO - Using BEST_MODEL path: /app/models/best.joblib
+2025-11-10 07:15:51,413 - heart_disease_prediction - INFO - Model loaded successfully from /app/models/best.joblib
+2025-11-10 07:15:51,414 - heart_disease_prediction - INFO - Model type: RandomForestClassifier
+2025-11-10 07:15:51,469 - heart_disease_prediction - INFO - Model has feature importances
+2025-11-10 07:15:51,469 - heart_disease_prediction - INFO - Model expects 15 features
+2025-11-10 07:15:51,471 - heart_disease_prediction - INFO - Checking for scaler at: /app/models\scaler.pkl (exists: True)
+2025-11-10 07:15:51,607 - heart_disease_prediction - INFO - Checking for label_encoders at: /app/models\label_encoders.pkl (exists: True)
+2025-11-10 07:15:51,621 - heart_disease_prediction - INFO - Checking for target_encoder at: /app/models\target_encoder.pkl (exists: True)
+2025-11-10 07:15:51,655 - heart_disease_prediction - INFO - Checking for smote at: /app/models\smote.pkl (exists: True)
+2025-11-10 07:15:51,720 - heart_disease_prediction - INFO - Checking for feature_selector at: /app/models\feature_selector.pkl (exists: True)
+2025-11-10 07:15:51,870 - heart_disease_prediction - INFO - Model directory: /app/models
+2025-11-10 07:15:51,870 - heart_disease_prediction - INFO - Model directory exists: True
+2025-11-10 07:15:51,870 - heart_disease_prediction - INFO - BEST_MODEL environment variable: /app/models/best.joblib
+2025-11-10 07:15:51,870 - heart_disease_prediction - INFO - Using BEST_MODEL path: /app/models/best.joblib
+2025-11-10 07:15:52,292 - heart_disease_prediction - INFO - Model loaded successfully from /app/models/best.joblib
+2025-11-10 07:15:52,293 - heart_disease_prediction - INFO - Model type: RandomForestClassifier
+2025-11-10 07:15:54,641 - heart_disease_prediction - INFO - Model has feature importances
+2025-11-10 07:15:54,642 - heart_disease_prediction - INFO - Model expects 15 features
+2025-11-10 07:15:54,643 - heart_disease_prediction - INFO - Checking for scaler at: /app/models\scaler.pkl (exists: True)
+2025-11-10 07:15:54,661 - heart_disease_prediction - INFO - Checking for label_encoders at: /app/models\label_encoders.pkl (exists: True)
+2025-11-10 07:15:54,663 - heart_disease_prediction - INFO - Checking for target_encoder at: /app/models\target_encoder.pkl (exists: True)
+2025-11-10 07:15:54,664 - heart_disease_prediction - INFO - Checking for smote at: /app/models\smote.pkl (exists: True)
+2025-11-10 07:15:54,680 - heart_disease_prediction - INFO - Checking for feature_selector at: /app/models\feature_selector.pkl (exists: True)
+2025-11-10 07:16:03,745 - heart_disease_prediction - INFO - Plotting configuration initialized
+2025-11-10 07:16:03,746 - heart_disease_prediction - INFO - Model directory: /app/models
+2025-11-10 07:16:03,746 - heart_disease_prediction - INFO - Model directory exists: True
+2025-11-10 07:16:03,747 - heart_disease_prediction - INFO - BEST_MODEL environment variable: /app/models/best.joblib
+2025-11-10 07:16:03,748 - heart_disease_prediction - INFO - Using BEST_MODEL path: /app/models/best.joblib
+2025-11-10 07:16:04,873 - heart_disease_prediction - INFO - Model loaded successfully from /app/models/best.joblib
+2025-11-10 07:16:04,873 - heart_disease_prediction - INFO - Model type: RandomForestClassifier
+2025-11-10 07:16:04,894 - heart_disease_prediction - INFO - Model has feature importances
+2025-11-10 07:16:04,894 - heart_disease_prediction - INFO - Model expects 15 features
+2025-11-10 07:16:04,895 - heart_disease_prediction - INFO - Checking for scaler at: /app/models\scaler.pkl (exists: True)
+2025-11-10 07:16:04,912 - heart_disease_prediction - INFO - Checking for label_encoders at: /app/models\label_encoders.pkl (exists: True)
+2025-11-10 07:16:04,915 - heart_disease_prediction - INFO - Checking for target_encoder at: /app/models\target_encoder.pkl (exists: True)
+2025-11-10 07:16:04,915 - heart_disease_prediction - INFO - Checking for smote at: /app/models\smote.pkl (exists: True)
+2025-11-10 07:16:04,959 - heart_disease_prediction - INFO - Checking for feature_selector at: /app/models\feature_selector.pkl (exists: True)
+2025-11-10 07:16:05,113 - heart_disease_prediction - INFO - Model directory: /app/models
+2025-11-10 07:16:05,113 - heart_disease_prediction - INFO - Model directory exists: True
+2025-11-10 07:16:05,113 - heart_disease_prediction - INFO - BEST_MODEL environment variable: /app/models/best.joblib
+2025-11-10 07:16:05,114 - heart_disease_prediction - INFO - Using BEST_MODEL path: /app/models/best.joblib
+2025-11-10 07:16:05,800 - heart_disease_prediction - INFO - Model loaded successfully from /app/models/best.joblib
+2025-11-10 07:16:05,801 - heart_disease_prediction - INFO - Model type: RandomForestClassifier
+2025-11-10 07:16:05,821 - heart_disease_prediction - INFO - Model has feature importances
+2025-11-10 07:16:05,822 - heart_disease_prediction - INFO - Model expects 15 features
+2025-11-10 07:16:05,822 - heart_disease_prediction - INFO - Checking for scaler at: /app/models\scaler.pkl (exists: True)
+2025-11-10 07:16:05,824 - heart_disease_prediction - INFO - Checking for label_encoders at: /app/models\label_encoders.pkl (exists: True)
+2025-11-10 07:16:05,825 - heart_disease_prediction - INFO - Checking for target_encoder at: /app/models\target_encoder.pkl (exists: True)
+2025-11-10 07:16:05,827 - heart_disease_prediction - INFO - Checking for smote at: /app/models\smote.pkl (exists: True)
+2025-11-10 07:16:05,853 - heart_disease_prediction - INFO - Checking for feature_selector at: /app/models\feature_selector.pkl (exists: True)

@@ -1,4 +1,5 @@
 import logging
+from logging.handlers import RotatingFileHandler
 from functools import wraps
 from typing import Callable, Any
 from app.config import config
@@ -9,16 +10,15 @@ class AOPLogger:
         self._setup_logger()
 
     def _setup_logger(self):
-        log_level = getattr(config.logging, 'level', 'INFO')
+        log_level = config.logging.log_level
         self.logger.setLevel(getattr(logging, log_level.upper()))
 
         if not self.logger.handlers:
-            log_format = getattr(config.logging, 'format',
-                                 '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+            log_format = config.logging.log_format
             formatter = logging.Formatter(log_format)
 
-            log_file = getattr(config.logging, 'file', 'app.log')
-            file_handler = logging.FileHandler(log_file)
+            log_file = config.logging.log_file
+            file_handler = RotatingFileHandler(log_file, maxBytes=5*1024*1024, backupCount=3)
             file_handler.setFormatter(formatter)
 
             console_handler = logging.StreamHandler()
