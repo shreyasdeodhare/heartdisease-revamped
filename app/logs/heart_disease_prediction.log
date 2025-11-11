@@ -1,0 +1,198 @@
+2025-11-11 09:02:35,372 - heart_disease_prediction - INFO - Plotting configuration initialized
+2025-11-11 09:02:35,376 - heart_disease_prediction - INFO - Application initialized successfully
+2025-11-11 09:02:35,377 - heart_disease_prediction - INFO - Starting run_complete_pipeline
+2025-11-11 09:02:35,377 - heart_disease_prediction - INFO - Starting complete ML pipeline
+2025-11-11 09:02:35,377 - heart_disease_prediction - INFO - Starting load_data
+2025-11-11 09:02:35,377 - heart_disease_prediction - INFO - Starting data download from: https://github.com/shreyasdeodhare/Datasets101/raw/main/heart_2020_cleaned.csv
+2025-11-11 09:02:35,377 - heart_disease_prediction - INFO - This may take a few moments for large datasets...
+2025-11-11 09:02:40,233 - heart_disease_prediction - INFO - Data download completed. Shape: (319795, 18)
+2025-11-11 09:02:40,233 - heart_disease_prediction - INFO - Columns: ['HeartDisease', 'BMI', 'Smoking', 'AlcoholDrinking', 'Stroke', 'PhysicalHealth', 'MentalHealth', 'DiffWalking', 'Sex', 'AgeCategory', 'Race', 'Diabetic', 'PhysicalActivity', 'GenHealth', 'SleepTime', 'Asthma', 'KidneyDisease', 'SkinCancer']
+2025-11-11 09:02:42,589 - heart_disease_prediction - INFO - Memory usage: 232.85 MB
+2025-11-11 09:02:42,590 - heart_disease_prediction - INFO - Validating downloaded data...
+2025-11-11 09:02:42,916 - heart_disease_prediction - INFO - DataFrame shape: (319795, 18)
+2025-11-11 09:02:42,923 - heart_disease_prediction - INFO - DataFrame dtypes: {dtype('O'): 14, dtype('float64'): 4}
+2025-11-11 09:02:42,924 - data_service - INFO - Data loaded from https://github.com/shreyasdeodhare/Datasets101/raw/main/heart_2020_cleaned.csv, shape: (319795, 18)
+2025-11-11 09:02:42,924 - heart_disease_prediction - INFO - Data loading and validation completed successfully
+2025-11-11 09:02:42,924 - heart_disease_prediction - INFO - Completed load_data successfully
+2025-11-11 09:02:42,924 - heart_disease_prediction - INFO - Starting preprocess_data
+2025-11-11 09:02:42,925 - heart_disease_prediction - INFO - Starting data preprocessing
+2025-11-11 09:02:42,988 - heart_disease_prediction - INFO - Starting feature engineering...
+2025-11-11 09:02:42,989 - heart_disease_prediction - INFO - Input data shape: (319795, 18)
+2025-11-11 09:02:43,700 - heart_disease_prediction - INFO - Feature engineering completed. New shape: (319795, 22)
+2025-11-11 09:02:43,700 - heart_disease_prediction - INFO - New features created: BMI_Category, Age_Numeric, Health_Score, Risk_Score
+2025-11-11 09:02:43,700 - data_service - INFO - Features engineered: ['BMI_Category', 'Age_Numeric', 'Health_Score', 'Risk_Score']
+2025-11-11 09:02:44,062 - heart_disease_prediction - INFO - Preprocessing completed. Shape: (319795, 22)
+2025-11-11 09:02:44,063 - heart_disease_prediction - INFO - Completed preprocess_data successfully
+2025-11-11 09:02:44,063 - heart_disease_prediction - INFO - Starting encode_categorical_variables
+2025-11-11 09:02:44,063 - heart_disease_prediction - INFO - Starting categorical variable encoding...
+2025-11-11 09:02:44,063 - heart_disease_prediction - INFO - Input shape: (319795, 22)
+2025-11-11 09:02:44,412 - heart_disease_prediction - INFO - Found 15 categorical columns: ['HeartDisease', 'Smoking', 'AlcoholDrinking', 'Stroke', 'DiffWalking', 'Sex', 'AgeCategory', 'Race', 'Diabetic', 'PhysicalActivity', 'GenHealth', 'Asthma', 'KidneyDisease', 'SkinCancer', 'BMI_Category']
+2025-11-11 09:02:44,413 - heart_disease_prediction - INFO - Applying label encoding to categorical features...
+2025-11-11 09:02:44,413 - heart_disease_prediction - INFO - Encoding column 2/15: Smoking
+2025-11-11 09:02:44,545 - heart_disease_prediction - INFO - Encoded Smoking with 2 classes: ['No' 'Yes']
+2025-11-11 09:02:44,546 - heart_disease_prediction - INFO - Encoding column 3/15: AlcoholDrinking
+2025-11-11 09:02:44,683 - heart_disease_prediction - INFO - Encoded AlcoholDrinking with 2 classes: ['No' 'Yes']
+2025-11-11 09:02:44,683 - heart_disease_prediction - INFO - Encoding column 4/15: Stroke
+2025-11-11 09:02:44,825 - heart_disease_prediction - INFO - Encoded Stroke with 2 classes: ['No' 'Yes']
+2025-11-11 09:02:44,825 - heart_disease_prediction - INFO - Encoding column 5/15: DiffWalking
+2025-11-11 09:02:44,969 - heart_disease_prediction - INFO - Encoded DiffWalking with 2 classes: ['No' 'Yes']
+2025-11-11 09:02:44,969 - heart_disease_prediction - INFO - Encoding column 6/15: Sex
+2025-11-11 09:02:45,108 - heart_disease_prediction - INFO - Encoded Sex with 2 classes: ['Female' 'Male']
+2025-11-11 09:02:45,108 - heart_disease_prediction - INFO - Encoding column 7/15: AgeCategory
+2025-11-11 09:02:45,265 - heart_disease_prediction - INFO - Encoded AgeCategory with 13 classes: ['18-24' '25-29' '30-34' '35-39' '40-44' '45-49' '50-54' '55-59' '60-64'
+ '65-69' '70-74' '75-79' '80 or older']
+2025-11-11 09:02:45,265 - heart_disease_prediction - INFO - Encoding column 8/15: Race
+2025-11-11 09:02:45,412 - heart_disease_prediction - INFO - Encoded Race with 6 classes: ['American Indian/Alaskan Native' 'Asian' 'Black' 'Hispanic' 'Other'
+ 'White']
+2025-11-11 09:02:45,412 - heart_disease_prediction - INFO - Encoding column 9/15: Diabetic
+2025-11-11 09:02:45,561 - heart_disease_prediction - INFO - Encoded Diabetic with 4 classes: ['No' 'No, borderline diabetes' 'Yes' 'Yes (during pregnancy)']
+2025-11-11 09:02:45,562 - heart_disease_prediction - INFO - Encoding column 10/15: PhysicalActivity
+2025-11-11 09:02:45,703 - heart_disease_prediction - INFO - Encoded PhysicalActivity with 2 classes: ['No' 'Yes']
+2025-11-11 09:02:45,703 - heart_disease_prediction - INFO - Encoding column 11/15: GenHealth
+2025-11-11 09:02:45,849 - heart_disease_prediction - INFO - Encoded GenHealth with 5 classes: ['Excellent' 'Fair' 'Good' 'Poor' 'Very good']
+2025-11-11 09:02:45,849 - heart_disease_prediction - INFO - Encoding column 12/15: Asthma
+2025-11-11 09:02:45,983 - heart_disease_prediction - INFO - Encoded Asthma with 2 classes: ['No' 'Yes']
+2025-11-11 09:02:45,984 - heart_disease_prediction - INFO - Encoding column 13/15: KidneyDisease
+2025-11-11 09:02:46,143 - heart_disease_prediction - INFO - Encoded KidneyDisease with 2 classes: ['No' 'Yes']
+2025-11-11 09:02:46,144 - heart_disease_prediction - INFO - Encoding column 14/15: SkinCancer
+2025-11-11 09:02:46,280 - heart_disease_prediction - INFO - Encoded SkinCancer with 2 classes: ['No' 'Yes']
+2025-11-11 09:02:46,281 - heart_disease_prediction - INFO - Encoding column 15/15: BMI_Category
+2025-11-11 09:02:46,428 - heart_disease_prediction - INFO - Encoded BMI_Category with 4 classes: ['Normal' 'Obese' 'Overweight' 'Underweight']
+2025-11-11 09:02:46,429 - heart_disease_prediction - INFO - Encoding target variable: HeartDisease
+2025-11-11 09:02:46,561 - heart_disease_prediction - INFO - Target variable encoded with classes: ['No' 'Yes']
+2025-11-11 09:02:46,562 - heart_disease_prediction - INFO - Categorical encoding completed. Final shape: (319795, 22)
+2025-11-11 09:02:46,562 - heart_disease_prediction - INFO - Completed encode_categorical_variables successfully
+2025-11-11 09:02:46,562 - heart_disease_prediction - INFO - Starting generate_comprehensive_report
+2025-11-11 09:02:46,562 - heart_disease_prediction - INFO - Generating comprehensive EDA report
+2025-11-11 09:02:46,562 - heart_disease_prediction - INFO - Starting plot_target_distribution
+2025-11-11 09:02:46,562 - heart_disease_prediction - INFO - Creating target distribution plots
+2025-11-11 09:03:02,043 - heart_disease_prediction - INFO - Target distribution plots saved
+2025-11-11 09:03:02,043 - heart_disease_prediction - INFO - Completed plot_target_distribution successfully
+2025-11-11 09:03:02,043 - heart_disease_prediction - INFO - Starting plot_correlation_analysis
+2025-11-11 09:03:02,043 - heart_disease_prediction - INFO - Creating correlation analysis plots
+2025-11-11 09:03:05,308 - heart_disease_prediction - INFO - Correlation analysis plots saved
+2025-11-11 09:03:05,309 - heart_disease_prediction - INFO - Completed plot_correlation_analysis successfully
+2025-11-11 09:03:05,309 - heart_disease_prediction - INFO - Starting plot_feature_analysis
+2025-11-11 09:03:05,309 - heart_disease_prediction - INFO - Creating feature analysis plots
+2025-11-11 09:03:09,660 - heart_disease_prediction - INFO - Feature analysis plots saved
+2025-11-11 09:03:09,660 - heart_disease_prediction - INFO - Completed plot_feature_analysis successfully
+2025-11-11 09:03:09,660 - heart_disease_prediction - INFO - Starting plot_risk_factor_analysis
+2025-11-11 09:03:09,661 - heart_disease_prediction - INFO - Creating risk factor analysis plots
+2025-11-11 09:03:12,541 - heart_disease_prediction - INFO - Risk factor analysis plots saved
+2025-11-11 09:03:12,541 - heart_disease_prediction - INFO - Completed plot_risk_factor_analysis successfully
+2025-11-11 09:03:12,542 - heart_disease_prediction - INFO - Starting generate_data_overview
+2025-11-11 09:03:12,542 - heart_disease_prediction - INFO - Generating data overview
+2025-11-11 09:03:12,571 - heart_disease_prediction - INFO - Data overview saved to /app/outpts\data_overview.txt
+2025-11-11 09:03:12,571 - heart_disease_prediction - INFO - Completed generate_data_overview successfully
+2025-11-11 09:03:12,572 - heart_disease_prediction - INFO - Comprehensive EDA report generated successfully
+2025-11-11 09:03:12,572 - heart_disease_prediction - INFO - Completed generate_comprehensive_report successfully
+2025-11-11 09:03:12,634 - heart_disease_prediction - INFO - DataFrame shape: (319795, 21)
+2025-11-11 09:03:12,636 - heart_disease_prediction - INFO - DataFrame dtypes: {dtype('int64'): 16, dtype('float64'): 5}
+2025-11-11 09:03:12,647 - heart_disease_prediction - WARNING - High class imbalance ratio: 10.68
+2025-11-11 09:03:12,648 - heart_disease_prediction - INFO - Target variable classes: [0 1]
+2025-11-11 09:03:12,648 - heart_disease_prediction - INFO - Class distribution: {0: 292422, 1: 27373}
+2025-11-11 09:03:12,648 - heart_disease_prediction - INFO - Starting scale_features
+2025-11-11 09:03:12,648 - heart_disease_prediction - INFO - Scaling features
+2025-11-11 09:03:12,979 - heart_disease_prediction - INFO - Features scaled. Shape: (319795, 21)
+2025-11-11 09:03:12,980 - heart_disease_prediction - INFO - Completed scale_features successfully
+2025-11-11 09:03:12,980 - heart_disease_prediction - INFO - Starting handle_class_imbalance
+2025-11-11 09:03:12,980 - heart_disease_prediction - INFO - Starting class imbalance handling...
+2025-11-11 09:03:12,980 - heart_disease_prediction - INFO - Input data shape: (319795, 21)
+2025-11-11 09:03:12,985 - heart_disease_prediction - INFO - Original class distribution: {0: 292422, 1: 27373}
+2025-11-11 09:03:12,985 - data_service - INFO - Class balance: {0: 292422, 1: 27373}
+2025-11-11 09:03:12,985 - heart_disease_prediction - INFO - Applying SMOTE for class balancing...
+2025-11-11 09:03:28,908 - heart_disease_prediction - INFO - SMOTE completed. New shape: (584844, 21)
+2025-11-11 09:03:28,909 - heart_disease_prediction - INFO - New class distribution: {0: 292422, 1: 292422}
+2025-11-11 09:03:28,909 - heart_disease_prediction - INFO - Completed handle_class_imbalance successfully
+2025-11-11 09:03:28,909 - heart_disease_prediction - INFO - Starting select_features
+2025-11-11 09:03:28,909 - heart_disease_prediction - INFO - Starting feature selection on 584844 samples...
+2025-11-11 09:03:28,910 - heart_disease_prediction - INFO - Large dataset detected. Using sample for feature selection...
+2025-11-11 09:03:29,062 - heart_disease_prediction - INFO - Using sample of 50000 for feature selection
+2025-11-11 09:03:29,062 - heart_disease_prediction - INFO - Running statistical feature selection...
+2025-11-11 09:03:29,139 - heart_disease_prediction - INFO - Statistical selection completed: 15 features
+2025-11-11 09:03:29,140 - heart_disease_prediction - INFO - Running RFE feature selection...
+2025-11-11 09:03:39,253 - heart_disease_prediction - INFO - RFE selection completed: 15 features
+2025-11-11 09:03:39,331 - heart_disease_prediction - INFO - Feature selection completed. Selected 15 features: ['BMI', 'Stroke', 'PhysicalHealth', 'MentalHealth', 'DiffWalking', 'Sex', 'AgeCategory', 'Race', 'Diabetic', 'GenHealth', 'SleepTime', 'BMI_Category', 'Age_Numeric', 'Health_Score', 'Risk_Score']
+2025-11-11 09:03:39,335 - heart_disease_prediction - INFO - Completed select_features successfully
+2025-11-11 09:03:39,336 - heart_disease_prediction - INFO - Starting split_data
+2025-11-11 09:03:39,336 - heart_disease_prediction - INFO - Splitting data into train and test sets
+2025-11-11 09:03:40,199 - heart_disease_prediction - INFO - Train set: (467875, 15), Test set: (116969, 15)
+2025-11-11 09:03:40,200 - heart_disease_prediction - INFO - Completed split_data successfully
+2025-11-11 09:03:40,200 - heart_disease_prediction - INFO - Starting split_data
+2025-11-11 09:03:40,200 - heart_disease_prediction - INFO - Splitting data into train and test sets
+2025-11-11 09:03:40,719 - heart_disease_prediction - INFO - Train set: (255836, 21), Test set: (63959, 21)
+2025-11-11 09:03:40,719 - heart_disease_prediction - INFO - Completed split_data successfully
+2025-11-11 09:03:40,736 - heart_disease_prediction - INFO - Starting initialize_models
+2025-11-11 09:03:40,736 - heart_disease_prediction - INFO - Initializing models
+2025-11-11 09:03:40,737 - heart_disease_prediction - INFO - Initialized 3 models
+2025-11-11 09:03:40,737 - heart_disease_prediction - INFO - Completed initialize_models successfully
+2025-11-11 09:03:40,737 - heart_disease_prediction - INFO - Starting train_models
+2025-11-11 09:03:40,738 - heart_disease_prediction - INFO - Starting model training with 3 models...
+2025-11-11 09:03:40,738 - heart_disease_prediction - INFO - Training data shape: (467875, 15)
+2025-11-11 09:03:40,738 - heart_disease_prediction - INFO - Training model 1/3: Random Forest
+2025-11-11 09:03:40,738 - heart_disease_prediction - INFO - Model type: RandomForestClassifier
+2025-11-11 09:03:57,337 - heart_disease_prediction - INFO - Random Forest training completed in 16.60 seconds
+2025-11-11 09:03:57,337 - model_service - INFO - Model Random Forest trained with params: {'training_time': 16.598495960235596}
+2025-11-11 09:03:57,337 - heart_disease_prediction - INFO - Training model 2/3: XGBoost
+2025-11-11 09:03:57,337 - heart_disease_prediction - INFO - Model type: XGBClassifier
+2025-11-11 09:04:02,242 - heart_disease_prediction - INFO - XGBoost training completed in 4.90 seconds
+2025-11-11 09:04:02,242 - model_service - INFO - Model XGBoost trained with params: {'training_time': 4.904019832611084}
+2025-11-11 09:04:02,242 - heart_disease_prediction - INFO - Training model 3/3: Logistic Regression
+2025-11-11 09:04:02,242 - heart_disease_prediction - INFO - Model type: LogisticRegression
+2025-11-11 09:04:13,267 - heart_disease_prediction - INFO - Logistic Regression training completed in 11.02 seconds
+2025-11-11 09:04:13,267 - model_service - INFO - Model Logistic Regression trained with params: {'training_time': 11.024126291275024}
+2025-11-11 09:04:13,267 - heart_disease_prediction - INFO - All 3 models trained successfully
+2025-11-11 09:04:13,268 - heart_disease_prediction - INFO - Completed train_models successfully
+2025-11-11 09:04:13,268 - heart_disease_prediction - INFO - Starting evaluate_models
+2025-11-11 09:04:13,268 - heart_disease_prediction - INFO - Evaluating models
+2025-11-11 09:04:13,268 - heart_disease_prediction - INFO - Evaluating Random Forest...
+2025-11-11 09:04:15,105 - model_service - INFO - Model Random Forest evaluation: {'accuracy': 0.9257666561225624, 'precision': 0.9419762509096719, 'recall': 0.907427672525819, 'f1': 0.9243792619945481}
+2025-11-11 09:04:15,106 - heart_disease_prediction - INFO - Evaluating XGBoost...
+2025-11-11 09:04:15,556 - model_service - INFO - Model XGBoost evaluation: {'accuracy': 0.9171147910984961, 'precision': 0.9498921122033086, 'recall': 0.880685315641885, 'f1': 0.9139804981057077}
+2025-11-11 09:04:15,557 - heart_disease_prediction - INFO - Evaluating Logistic Regression...
+2025-11-11 09:04:15,720 - model_service - INFO - Model Logistic Regression evaluation: {'accuracy': 0.7540715916182921, 'precision': 0.7437899917965546, 'recall': 0.7751521783735723, 'f1': 0.7591473114858416}
+2025-11-11 09:04:15,723 - heart_disease_prediction - INFO - Completed evaluate_models successfully
+2025-11-11 09:04:15,724 - heart_disease_prediction - INFO - Starting cross_validation_evaluation
+2025-11-11 09:04:15,724 - heart_disease_prediction - INFO - Performing cross-validation evaluation
+2025-11-11 09:04:15,724 - heart_disease_prediction - INFO - Cross-validation for Random Forest...
+2025-11-11 09:07:20,522 - model_service - INFO - Model Random Forest CV results: {'accuracy': {'mean': np.float64(0.9200427474871598), 'std': np.float64(0.0005454576203653427)}, 'precision': {'mean': np.float64(0.9342396142634654), 'std': np.float64(0.0004689574157521593)}, 'recall': {'mean': np.float64(0.9036967075144665), 'std': np.float64(0.0011646343670305055)}, 'f1': {'mean': np.float64(0.9187138781696165), 'std': np.float64(0.0005971538118463077)}, 'roc_auc': {'mean': np.float64(0.9689157927097312), 'std': np.float64(0.00038702265965699114)}}
+2025-11-11 09:07:20,523 - heart_disease_prediction - INFO - Cross-validation for XGBoost...
+2025-11-11 09:08:09,492 - model_service - INFO - Model XGBoost CV results: {'accuracy': {'mean': np.float64(0.9192604849931433), 'std': np.float64(0.0005235439525962949)}, 'precision': {'mean': np.float64(0.9514098559488019), 'std': np.float64(0.0007045275437623848)}, 'recall': {'mean': np.float64(0.8836529249265318), 'std': np.float64(0.0018280512818459598)}, 'f1': {'mean': np.float64(0.9162786734739604), 'std': np.float64(0.0006565490747122556)}, 'roc_auc': {'mean': np.float64(0.9751950088707426), 'std': np.float64(0.00015840063495493325)}}
+2025-11-11 09:08:09,492 - heart_disease_prediction - INFO - Cross-validation for Logistic Regression...
+2025-11-11 09:08:41,911 - model_service - INFO - Model Logistic Regression CV results: {'accuracy': {'mean': np.float64(0.7533123156637385), 'std': np.float64(0.0007048097446369944)}, 'precision': {'mean': np.float64(0.7430672352312232), 'std': np.float64(0.0011224372055073763)}, 'recall': {'mean': np.float64(0.7743932115239928), 'std': np.float64(0.0007184306393869744)}, 'f1': {'mean': np.float64(0.7584060310040645), 'std': np.float64(0.0005167288995430026)}, 'roc_auc': {'mean': np.float64(0.8296230339826267), 'std': np.float64(0.0006864571111343258)}}
+2025-11-11 09:08:41,912 - heart_disease_prediction - INFO - Completed cross_validation_evaluation successfully
+2025-11-11 09:08:41,912 - heart_disease_prediction - INFO - Starting select_best_model
+2025-11-11 09:08:41,912 - heart_disease_prediction - INFO - Selecting best model
+2025-11-11 09:08:41,917 - heart_disease_prediction - INFO - Best model selected: Random Forest
+2025-11-11 09:08:41,917 - heart_disease_prediction - INFO - Best CV F1: 0.919
+2025-11-11 09:08:41,918 - heart_disease_prediction - INFO - Completed select_best_model successfully
+2025-11-11 09:08:41,918 - heart_disease_prediction - INFO - Starting final_evaluation
+2025-11-11 09:08:41,918 - heart_disease_prediction - INFO - Performing final evaluation
+2025-11-11 09:08:43,938 - heart_disease_prediction - INFO - Final evaluation completed
+2025-11-11 09:08:43,940 - heart_disease_prediction - INFO - Completed final_evaluation successfully
+2025-11-11 09:08:43,941 - heart_disease_prediction - INFO - Starting get_feature_importance
+2025-11-11 09:08:44,008 - heart_disease_prediction - INFO - Completed get_feature_importance successfully
+2025-11-11 09:08:44,009 - heart_disease_prediction - INFO - Starting validate_model_performance
+2025-11-11 09:08:44,009 - heart_disease_prediction - INFO - Validating model performance
+2025-11-11 09:08:44,010 - heart_disease_prediction - INFO - Balanced Test Set accuracy meets threshold: 0.926 >= 0.7
+2025-11-11 09:08:44,010 - heart_disease_prediction - INFO - Balanced Test Set f1 meets threshold: 0.924 >= 0.6
+2025-11-11 09:08:44,010 - heart_disease_prediction - INFO - Balanced Test Set auc meets threshold: 0.971 >= 0.7
+2025-11-11 09:08:44,010 - heart_disease_prediction - INFO - Original Test Set accuracy meets threshold: 0.934 >= 0.7
+2025-11-11 09:08:44,010 - heart_disease_prediction - INFO - Original Test Set f1 meets threshold: 0.670 >= 0.6
+2025-11-11 09:08:44,010 - heart_disease_prediction - INFO - Original Test Set auc meets threshold: 0.942 >= 0.7
+2025-11-11 09:08:44,010 - heart_disease_prediction - INFO - Completed validate_model_performance successfully
+2025-11-11 09:08:44,012 - heart_disease_prediction - INFO - Saving models...
+2025-11-11 09:08:44,473 - heart_disease_prediction - INFO - Model saved at: /app/models\heart_disease_model_random forest_20251111_090844.joblib
+2025-11-11 09:08:44,543 - heart_disease_prediction - INFO - Preprocessing artifacts saved to /app/models
+2025-11-11 09:08:44,548 - heart_disease_prediction - INFO - Starting plot_model_comparison
+2025-11-11 09:08:44,549 - heart_disease_prediction - INFO - Creating model comparison plots
+2025-11-11 09:08:46,600 - heart_disease_prediction - INFO - Model comparison plots saved
+2025-11-11 09:08:46,600 - heart_disease_prediction - INFO - Completed plot_model_comparison successfully
+2025-11-11 09:08:46,600 - heart_disease_prediction - INFO - Starting plot_feature_importance
+2025-11-11 09:08:46,600 - heart_disease_prediction - INFO - Creating feature importance plots
+2025-11-11 09:08:47,393 - heart_disease_prediction - INFO - Feature importance plots saved
+2025-11-11 09:08:47,393 - heart_disease_prediction - INFO - Completed plot_feature_importance successfully
+2025-11-11 09:08:47,393 - heart_disease_prediction - INFO - Final visualizations generated
+2025-11-11 09:08:47,427 - heart_disease_prediction - INFO - Summary report saved to /app/outpts\pipeline_summary.json
+2025-11-11 09:08:47,427 - heart_disease_prediction - INFO - Complete ML pipeline finished successfully
+2025-11-11 09:08:47,602 - heart_disease_prediction - INFO - Completed run_complete_pipeline successfully

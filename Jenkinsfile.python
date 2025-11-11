@@ -1,0 +1,171 @@
+pipeline {
+    agent any
+
+    environment {
+        DOCKER_REGISTRY = 'docker.io/shreeram063'
+        DOCKER_CREDENTIALS_ID = 'docker-credentials'
+        SONARQUBE_SCANNER_HOME = tool 'SonarQubeScanner'
+        SONARQUBE_SERVER = 'SonarQube'
+        PYTHON_VERSION = '3.9'  // Specify your Python version
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                script {
+                    checkout([
+                        $class: 'GitSCM',
+                        branches: [[name: '*/master']],
+                        extensions: [],
+                        userRemoteConfigs: [[
+                            credentialsId: 'github-credentials',
+                            url: 'https://github.com/shreyasdeodhare/heartdisease-revamped'
+                        ]]
+                    ])
+                    
+                    env.GIT_COMMIT_HASH = sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()
+                    env.APP_VERSION = "${env.BUILD_NUMBER}-${env.GIT_COMMIT_HASH}"
+                }
+            }
+        }
+
+        stage('Setup Python') {
+            steps {
+                script {
+                    // Setup Python virtual environment
+                    sh "python -m venv venv"
+                    sh ". venv/bin/activate && pip install --upgrade pip"
+                }
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                script {
+                    sh """
+                    . venv/bin/activate
+                    pip install -r requirements.txt
+                    # Install test dependencies if test-requirements.txt exists
+                    if [ -f test-requirements.txt ]; then
+                        pip install -r test-requirements.txt
+                    fi
+                    # Install development tools
+                    pip install pytest pytest-cov pylint black
+                    """
+                }
+            }
+        }
+
+        stage('Lint') {
+            steps {
+                script {
+                    sh """
+                    . venv/bin/activate
+                    pylint --exit-zero **/*.py || true
+                    black --check --diff . || true
+                    """
+                }
+            }
+        }
+
+        stage('Unit Tests') {
+            steps {
+                script {
+                    sh """
+                    . venv/bin/activate
+                    pytest --cov=. --cov-report=xml:coverage.xml --junitxml=test-results.xml
+                    """
+                }
+                junit 'test-results.xml'
+                // Publish code coverage report if needed
+                // publishHTML(target: [allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'htmlcov', reportFiles: 'index.html', reportName: 'Coverage Report'])
+            }
+        }
+
+        stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('SonarQube') {
+                    sh """
+                    . venv/bin/activate
+                    ${SONARQUBE_SCANNER_HOME}/bin/sonar-scanner \
+                        -Dsonar.projectKey=heart-disease-python \
+                        -Dsonar.projectName=heart-disease-python \
+                        -Dsonar.projectVersion=${env.APP_VERSION} \
+                        -Dsonar.sources=. \
+                        -Dsonar.python.coverage.reportPaths=coverage.xml \
+                        -Dsonar.sourceEncoding=UTF-8 \
+                        -Dsonar.python.version=${PYTHON_VERSION}
+                    """
+                }
+            }
+        }
+
+        stage('Quality Gate') {
+            steps {
+                timeout(time: 5, unit: 'MINUTES') {
+                    script {
+                        def qg = waitForQualityGate()
+                        if (qg.status != 'OK') {
+                            error "Pipeline aborted due to quality gate failure: ${qg.status}"
+                        }
+                    }
+                }
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    // Ensure Dockerfile exists
+                    if (!fileExists('Dockerfile')) {
+                        writeFile file: 'Dockerfile', text: """
+                        FROM python:${PYTHON_VERSION}-slim
+                        WORKDIR /app
+                        COPY requirements.txt .
+                        RUN pip install --no-cache-dir -r requirements.txt
+                        COPY . .
+                        CMD ["python", "app.py"]
+                        """
+                    }
+                    
+                    // Build and push the Docker image
+                    docker.withRegistry('', DOCKER_CREDENTIALS_ID) {
+                        def dockerImage = docker.build("${DOCKER_REGISTRY}/heart-disease-python:${env.APP_VERSION}")
+                        dockerImage.push()
+                        // Also tag as 'latest' for convenience
+                        dockerImage.push('latest')
+                    }
+                }
+            }
+        }
+
+        stage('Deploy to Dev') {
+            steps {
+                script {
+                    // Example using kubectl (update with your actual deployment config)
+                    sh """
+                    kubectl config use-context dev-cluster
+                    kubectl set image deployment/heart-disease-python \
+                        heart-disease-python=${DOCKER_REGISTRY}/heart-disease-python:${env.APP_VERSION} \
+                        --record
+                    """
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Python pipeline completed successfully!'
+            // Uncomment to send success notification
+            // slackSend color: 'good', message: "${JOB_NAME} - Build #${BUILD_NUMBER} succeeded!"
+        }
+        failure {
+            // Uncomment to send failure notification
+            // slackSend color: 'danger', message: "${JOB_NAME} - Build #${BUILD_NUMBER} failed. See ${BUILD_URL}"
+        }
+        cleanup {
+            cleanWs()
+        }
+    }
+}
