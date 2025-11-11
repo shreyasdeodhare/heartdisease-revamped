@@ -60,3 +60,81 @@
 2025-11-10 07:16:05,825 - heart_disease_prediction - INFO - Checking for target_encoder at: /app/models\target_encoder.pkl (exists: True)
 2025-11-10 07:16:05,827 - heart_disease_prediction - INFO - Checking for smote at: /app/models\smote.pkl (exists: True)
 2025-11-10 07:16:05,853 - heart_disease_prediction - INFO - Checking for feature_selector at: /app/models\feature_selector.pkl (exists: True)
+2025-11-10 21:19:38,724 - heart_disease_prediction - INFO - Plotting configuration initialized
+2025-11-10 21:19:38,743 - heart_disease_prediction - INFO - Model directory: /app/models
+2025-11-10 21:19:38,744 - heart_disease_prediction - INFO - Model directory exists: True
+2025-11-10 21:19:38,744 - heart_disease_prediction - INFO - BEST_MODEL environment variable: /app/models/best.joblib
+2025-11-10 21:19:38,754 - heart_disease_prediction - INFO - Using BEST_MODEL path: /app/models/best.joblib
+2025-11-10 21:19:40,489 - heart_disease_prediction - INFO - Model loaded successfully from /app/models/best.joblib
+2025-11-10 21:19:40,493 - heart_disease_prediction - INFO - Model type: RandomForestClassifier
+2025-11-10 21:19:43,198 - heart_disease_prediction - INFO - Model has feature importances
+2025-11-10 21:19:43,198 - heart_disease_prediction - INFO - Model expects 15 features
+2025-11-10 21:19:43,221 - heart_disease_prediction - INFO - Checking for scaler at: /app/models\scaler.pkl (exists: True)
+2025-11-10 21:19:43,418 - heart_disease_prediction - INFO - Checking for label_encoders at: /app/models\label_encoders.pkl (exists: True)
+2025-11-10 21:19:43,421 - heart_disease_prediction - INFO - Checking for target_encoder at: /app/models\target_encoder.pkl (exists: True)
+2025-11-10 21:19:43,454 - heart_disease_prediction - INFO - Checking for smote at: /app/models\smote.pkl (exists: True)
+2025-11-10 21:19:43,514 - heart_disease_prediction - INFO - Checking for feature_selector at: /app/models\feature_selector.pkl (exists: True)
+2025-11-10 21:19:43,669 - heart_disease_prediction - INFO - Model directory: /app/models
+2025-11-10 21:19:43,669 - heart_disease_prediction - INFO - Model directory exists: True
+2025-11-10 21:19:43,670 - heart_disease_prediction - INFO - BEST_MODEL environment variable: /app/models/best.joblib
+2025-11-10 21:19:43,671 - heart_disease_prediction - INFO - Using BEST_MODEL path: /app/models/best.joblib
+2025-11-10 21:19:44,995 - heart_disease_prediction - INFO - Model loaded successfully from /app/models/best.joblib
+2025-11-10 21:19:45,007 - heart_disease_prediction - INFO - Model type: RandomForestClassifier
+2025-11-10 21:19:47,692 - heart_disease_prediction - INFO - Model has feature importances
+2025-11-10 21:19:47,693 - heart_disease_prediction - INFO - Model expects 15 features
+2025-11-10 21:19:47,693 - heart_disease_prediction - INFO - Checking for scaler at: /app/models\scaler.pkl (exists: True)
+2025-11-10 21:19:47,700 - heart_disease_prediction - INFO - Checking for label_encoders at: /app/models\label_encoders.pkl (exists: True)
+2025-11-10 21:19:47,702 - heart_disease_prediction - INFO - Checking for target_encoder at: /app/models\target_encoder.pkl (exists: True)
+2025-11-10 21:19:47,703 - heart_disease_prediction - INFO - Checking for smote at: /app/models\smote.pkl (exists: True)
+2025-11-10 21:19:47,743 - heart_disease_prediction - INFO - Checking for feature_selector at: /app/models\feature_selector.pkl (exists: True)
+2025-11-10 21:20:00,373 - heart_disease_prediction - INFO - Plotting configuration initialized
+2025-11-10 21:20:00,374 - heart_disease_prediction - INFO - Model directory: /app/models
+2025-11-10 21:20:00,374 - heart_disease_prediction - INFO - Model directory exists: True
+2025-11-10 21:20:00,374 - heart_disease_prediction - INFO - BEST_MODEL environment variable: /app/models/best.joblib
+2025-11-10 21:20:00,374 - heart_disease_prediction - INFO - Using BEST_MODEL path: /app/models/best.joblib
+2025-11-10 21:20:01,551 - heart_disease_prediction - INFO - Model loaded successfully from /app/models/best.joblib
+2025-11-10 21:20:01,552 - heart_disease_prediction - INFO - Model type: RandomForestClassifier
+2025-11-10 21:20:01,587 - heart_disease_prediction - INFO - Model has feature importances
+2025-11-10 21:20:01,587 - heart_disease_prediction - INFO - Model expects 15 features
+2025-11-10 21:20:01,588 - heart_disease_prediction - INFO - Checking for scaler at: /app/models\scaler.pkl (exists: True)
+2025-11-10 21:20:01,613 - heart_disease_prediction - INFO - Checking for label_encoders at: /app/models\label_encoders.pkl (exists: True)
+2025-11-10 21:20:01,618 - heart_disease_prediction - INFO - Checking for target_encoder at: /app/models\target_encoder.pkl (exists: True)
+2025-11-10 21:20:01,619 - heart_disease_prediction - INFO - Checking for smote at: /app/models\smote.pkl (exists: True)
+2025-11-10 21:20:01,671 - heart_disease_prediction - INFO - Checking for feature_selector at: /app/models\feature_selector.pkl (exists: True)
+2025-11-10 21:20:01,784 - heart_disease_prediction - INFO - Model directory: /app/models
+2025-11-10 21:20:01,785 - heart_disease_prediction - INFO - Model directory exists: True
+2025-11-10 21:20:01,785 - heart_disease_prediction - INFO - BEST_MODEL environment variable: /app/models/best.joblib
+2025-11-10 21:20:01,786 - heart_disease_prediction - INFO - Using BEST_MODEL path: /app/models/best.joblib
+2025-11-10 21:20:02,577 - heart_disease_prediction - INFO - Model loaded successfully from /app/models/best.joblib
+2025-11-10 21:20:02,578 - heart_disease_prediction - INFO - Model type: RandomForestClassifier
+2025-11-10 21:20:02,596 - heart_disease_prediction - INFO - Model has feature importances
+2025-11-10 21:20:02,596 - heart_disease_prediction - INFO - Model expects 15 features
+2025-11-10 21:20:02,597 - heart_disease_prediction - INFO - Checking for scaler at: /app/models\scaler.pkl (exists: True)
+2025-11-10 21:20:02,599 - heart_disease_prediction - INFO - Checking for label_encoders at: /app/models\label_encoders.pkl (exists: True)
+2025-11-10 21:20:02,601 - heart_disease_prediction - INFO - Checking for target_encoder at: /app/models\target_encoder.pkl (exists: True)
+2025-11-10 21:20:02,602 - heart_disease_prediction - INFO - Checking for smote at: /app/models\smote.pkl (exists: True)
+2025-11-10 21:20:02,641 - heart_disease_prediction - INFO - Checking for feature_selector at: /app/models\feature_selector.pkl (exists: True)
+2025-11-10 21:20:03,879 - heart_disease_prediction - INFO - Starting load_data
+2025-11-10 21:20:03,879 - heart_disease_prediction - INFO - Starting data download from: https://github.com/shreyasdeodhare/Datasets101/raw/main/heart_2020_cleaned.csv
+2025-11-10 21:20:03,881 - heart_disease_prediction - INFO - This may take a few moments for large datasets...
+2025-11-10 21:20:24,021 - heart_disease_prediction - INFO - Starting load_data
+2025-11-10 21:20:24,021 - heart_disease_prediction - INFO - Starting data download from: https://github.com/shreyasdeodhare/Datasets101/raw/main/heart_2020_cleaned.csv
+2025-11-10 21:20:24,022 - heart_disease_prediction - INFO - This may take a few moments for large datasets...
+2025-11-10 21:20:35,082 - heart_disease_prediction - INFO - Data download completed. Shape: (319795, 18)
+2025-11-10 21:20:35,083 - heart_disease_prediction - INFO - Columns: ['HeartDisease', 'BMI', 'Smoking', 'AlcoholDrinking', 'Stroke', 'PhysicalHealth', 'MentalHealth', 'DiffWalking', 'Sex', 'AgeCategory', 'Race', 'Diabetic', 'PhysicalActivity', 'GenHealth', 'SleepTime', 'Asthma', 'KidneyDisease', 'SkinCancer']
+2025-11-10 21:20:35,881 - heart_disease_prediction - INFO - Memory usage: 232.85 MB
+2025-11-10 21:20:35,881 - heart_disease_prediction - INFO - Validating downloaded data...
+2025-11-10 21:20:36,008 - heart_disease_prediction - INFO - DataFrame shape: (319795, 18)
+2025-11-10 21:20:36,034 - heart_disease_prediction - INFO - DataFrame dtypes: {dtype('O'): 14, dtype('float64'): 4}
+2025-11-10 21:20:36,035 - data_service - INFO - Data loaded from https://github.com/shreyasdeodhare/Datasets101/raw/main/heart_2020_cleaned.csv, shape: (319795, 18)
+2025-11-10 21:20:36,036 - heart_disease_prediction - INFO - Data loading and validation completed successfully
+2025-11-10 21:20:36,036 - heart_disease_prediction - INFO - Completed load_data successfully
+2025-11-10 21:20:43,630 - heart_disease_prediction - INFO - Data download completed. Shape: (319795, 18)
+2025-11-10 21:20:43,631 - heart_disease_prediction - INFO - Columns: ['HeartDisease', 'BMI', 'Smoking', 'AlcoholDrinking', 'Stroke', 'PhysicalHealth', 'MentalHealth', 'DiffWalking', 'Sex', 'AgeCategory', 'Race', 'Diabetic', 'PhysicalActivity', 'GenHealth', 'SleepTime', 'Asthma', 'KidneyDisease', 'SkinCancer']
+2025-11-10 21:20:44,370 - heart_disease_prediction - INFO - Memory usage: 232.85 MB
+2025-11-10 21:20:44,372 - heart_disease_prediction - INFO - Validating downloaded data...
+2025-11-10 21:20:44,495 - heart_disease_prediction - INFO - DataFrame shape: (319795, 18)
+2025-11-10 21:20:44,496 - heart_disease_prediction - INFO - DataFrame dtypes: {dtype('O'): 14, dtype('float64'): 4}
+2025-11-10 21:20:44,496 - data_service - INFO - Data loaded from https://github.com/shreyasdeodhare/Datasets101/raw/main/heart_2020_cleaned.csv, shape: (319795, 18)
+2025-11-10 21:20:44,497 - heart_disease_prediction - INFO - Data loading and validation completed successfully
+2025-11-10 21:20:44,498 - heart_disease_prediction - INFO - Completed load_data successfully

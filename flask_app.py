@@ -349,7 +349,7 @@ def validate_and_coerce_input(data: dict) -> dict:
         v = str(out['GenHealth']).strip()
         allowed = {'Poor','Fair','Good','Very good','Excellent'}
         out['GenHealth'] = v if v in allowed else 'Good'
-    if 'AgeCategory' in out:
+    if 'AgeCategory ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~' in out:
         v = str(out['AgeCategory']).strip()
         allowed_age = {'18-24','25-29','30-34','35-39','40-44','45-49','50-54','55-59','60-64','65-69','70-74','75-79','80 or older'}
         out['AgeCategory'] = v if v in allowed_age else 'Unknown'
@@ -756,17 +756,48 @@ def get_analysis_data():
         # Try to load real data first
         try:
             df = data_service.load_data()
-            # Ensure HeartDisease is numeric for aggregations
+            # Keep original HeartDisease for distribution, create numeric copy for analysis
             df = df.copy()
+            heart_disease_numeric = None
             if 'HeartDisease' in df.columns:
-                df['HeartDisease'] = (df['HeartDisease'].astype(str).str.lower() == 'yes').astype(int)
+                # Store original values for distribution
+                heart_disease_original = df['HeartDisease'].copy()
+                # Create numeric version for other analysis if needed
+                heart_disease_numeric = (df['HeartDisease'].astype(str).str.lower() == 'yes').astype(int)
             
             # Generate analysis data from real data
+            # Map target distribution to 'Yes'/'No' format expected by frontend
+            if 'HeartDisease' in df.columns:
+                target_counts = heart_disease_original.value_counts().to_dict()
+                # Normalize keys to 'Yes'/'No' format expected by frontend
+                target_distribution = {'Yes': 0, 'No': 0}
+                for key, value in target_counts.items():
+                    # Handle various formats: 'Yes'/'No' strings, 1/0 numeric, True/False boolean
+                    key_str = str(key).strip().lower()
+                    # Check if key is numeric (0/1) or boolean (True/False)
+                    if isinstance(key, (int, float)) and (key == 1 or key == 1.0):
+                        target_distribution['Yes'] += int(value)
+                    elif isinstance(key, (int, float)) and (key == 0 or key == 0.0):
+                        target_distribution['No'] += int(value)
+                    elif isinstance(key, bool) and key is True:
+                        target_distribution['Yes'] += int(value)
+                    elif isinstance(key, bool) and key is False:
+                        target_distribution['No'] += int(value)
+                    elif key_str in ['yes', '1', 'true']:
+                        target_distribution['Yes'] += int(value)
+                    elif key_str in ['no', '0', 'false']:
+                        target_distribution['No'] += int(value)
+                    else:
+                        # Default: treat unknown values as 'No' (healthy)
+                        target_distribution['No'] += int(value)
+            else:
+                target_distribution = {'Yes': 0, 'No': 0}
+            
             analysis_data = {
                 'dataset_info': {
                     'total_samples': len(df),
                     'features': len(df.columns),
-                    'target_distribution': df['HeartDisease'].value_counts().to_dict()
+                    'target_distribution': target_distribution
                 },
                 'feature_importance': get_feature_importance(),
                 'risk_factors': get_risk_factors_analysis(df)
