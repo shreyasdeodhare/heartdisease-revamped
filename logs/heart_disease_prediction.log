@@ -138,3 +138,10 @@
 2025-11-10 21:20:44,496 - data_service - INFO - Data loaded from https://github.com/shreyasdeodhare/Datasets101/raw/main/heart_2020_cleaned.csv, shape: (319795, 18)
 2025-11-10 21:20:44,497 - heart_disease_prediction - INFO - Data loading and validation completed successfully
 2025-11-10 21:20:44,498 - heart_disease_prediction - INFO - Completed load_data successfully
+2025-11-18 09:16:42,494 - heart_disease_prediction - INFO - Plotting configuration initialized
+2025-11-18 09:16:42,497 - heart_disease_prediction - INFO - Model directory: /app/models
+2025-11-18 09:16:42,497 - heart_disease_prediction - INFO - Model directory exists: True
+2025-11-18 09:16:42,498 - heart_disease_prediction - INFO - BEST_MODEL environment variable: /app/models/best.joblib
+2025-11-18 09:16:42,499 - heart_disease_prediction - INFO - Checking for model at: /app/models\best.joblib (exists: False)
+2025-11-18 09:16:42,499 - heart_disease_prediction - INFO - Checking for model at: /app/models\best.pkl (exists: False)
+2025-11-18 09:16:42,558 - heart_disease_prediction - ERROR - No valid model found in the model artifact
