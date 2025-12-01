@@ -1,6 +1,4 @@
-"""
-Data processing service for Heart Disease Prediction application
-"""
+
 
 import pandas as pd
 import numpy as np
