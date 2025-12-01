@@ -42,7 +42,7 @@ class ModelService:
             'Logistic Regression': LogisticRegression(random_state=config.model.random_state, max_iter=1000, n_jobs=-1)
         }
         
-        # Class weights for imbalanced data (will be calculated dynamically)
+        
         class_weights = {
             'Random Forest': RandomForestClassifier(n_estimators=config.model_params.rf_n_estimators, class_weight='balanced', random_state=config.model.random_state),
             'Gradient Boosting': GradientBoostingClassifier(random_state=config.model.random_state),
@@ -90,11 +90,11 @@ class ModelService:
         for name, model in self.trained_models.items():
             self.logger.info(f"Evaluating {name}...")
             
-            # Predictions
+           
             y_pred_test = model.predict(X_test)
             y_pred_orig = model.predict(X_orig_test)
             
-            # Calculate metrics
+            
             test_metrics = {
                 'accuracy': accuracy_score(y_test, y_pred_test),
                 'precision': precision_score(y_test, y_pred_test),
@@ -124,7 +124,6 @@ class ModelService:
         """Perform hyperparameter tuning for top models"""
         self.logger.info("Starting hyperparameter tuning")
         
-        # Define parameter grids
         param_grids = {
             'Random Forest': {
                 'n_estimators': [50, 100, 200, 300],
