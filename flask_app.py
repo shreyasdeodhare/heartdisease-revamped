@@ -16,15 +16,12 @@ from app.services.eda_service import EDAService
 from app.services.model_service import ModelService
 from app.utils.logging_utils import aop_logger
 
-# Load Flask-specific configuration
 flask_config_path = os.path.join(os.path.dirname(__file__), 'configs', 'flask_config.env')
 load_dotenv(flask_config_path)
 
-# Add app directory to path
 sys.path.append(os.path.join(os.path.dirname(__file__), 'app'))
 
 try:
-    # Import config from the app.config module
     from app.config import config
     from app.services.data_service import DataService
     from app.services.eda_service import EDAService
