@@ -1,6 +1,4 @@
-"""
-Flask web application for Heart Disease Prediction
-"""
+
 
 import os
 import sys
