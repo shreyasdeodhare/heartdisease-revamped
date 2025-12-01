@@ -61,13 +61,13 @@ class DataService:
         """Preprocess the dataset"""
         self.logger.info("Starting data preprocessing")
         
-        # Create a copy for preprocessing
+        
         df_processed = df.copy()
         
-        # Feature Engineering
+       
         df_processed = self._engineer_features(df_processed)
         
-        # Handle missing values
+        
         df_processed = self._handle_missing_values(df_processed)
         
         self.logger.info(f"Preprocessing completed. Shape: {df_processed.shape}")
@@ -78,7 +78,7 @@ class DataService:
         self.logger.info("Starting feature engineering...")
         self.logger.info(f"Input data shape: {df.shape}")
         
-        # BMI categories
+       
         def categorize_bmi(bmi):
             if bmi < 18.5:
                 return 'Underweight'
@@ -91,7 +91,7 @@ class DataService:
         
         df['BMI_Category'] = df['BMI'].apply(categorize_bmi)
         
-        # Age groups from AgeCategory
+        
         age_mapping = {
             '18-24': 21, '25-29': 27, '30-34': 32, '35-39': 37, '40-44': 42,
             '45-49': 47, '50-54': 52, '55-59': 57, '60-64': 62, '65-69': 67,
@@ -99,10 +99,8 @@ class DataService:
         }
         df['Age_Numeric'] = df['AgeCategory'].map(age_mapping)
         
-        # Health score (combination of physical and mental health)
         df['Health_Score'] = (df['PhysicalHealth'] + df['MentalHealth']) / 2
         
-        # Risk score (sum of risk factors)
         risk_factors = ['Smoking', 'AlcoholDrinking', 'Stroke', 'Diabetic', 
                        'Asthma', 'KidneyDisease', 'SkinCancer']
         df['Risk_Score'] = 0
@@ -120,7 +118,6 @@ class DataService:
         missing_values = df.isnull().sum()
         if missing_values.any():
             self.logger.warning(f"Missing values found: {missing_values[missing_values > 0].to_dict()}")
-            # Fill missing values with appropriate strategies
             df = df.fillna(method='ffill').fillna(method='bfill')
         
         return df
@@ -134,11 +131,9 @@ class DataService:
         
         df_encoded = df.copy()
         
-        # Identify categorical columns
         categorical_columns = df_encoded.select_dtypes(include=['object']).columns.tolist()
         self.logger.info(f"Found {len(categorical_columns)} categorical columns: {categorical_columns}")
         
-        # Apply label encoding
         self.logger.info("Applying label encoding to categorical features...")
         for i, col in enumerate(categorical_columns):
             if col != 'HeartDisease':
@@ -148,7 +143,6 @@ class DataService:
                 self.label_encoders[col] = le
                 self.logger.info(f"Encoded {col} with {len(le.classes_)} classes: {le.classes_}")
         
-        # Encode target variable
         self.logger.info("Encoding target variable: HeartDisease")
         self.target_encoder = LabelEncoder()
         df_encoded['HeartDisease'] = self.target_encoder.fit_transform(df_encoded['HeartDisease'])
